@@ -432,3 +432,5 @@ out/
 
 # Common working directory
 run/
+
+Debug/

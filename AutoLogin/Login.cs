@@ -16,7 +16,14 @@ namespace AutoLogin
             DbManager.convertToConStrg(false);
             DbManager.openConnection();
         }
-        
 
+        public void buttonLogin_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            Dashboard dashboard1 = new Dashboard();           
+            dashboard1.Show();
+
+
+        }
     }
 }

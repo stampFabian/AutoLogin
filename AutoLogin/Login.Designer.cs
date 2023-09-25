@@ -48,6 +48,7 @@ namespace AutoLogin
             this.buttonLogin.TabIndex = 0;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // textBoxPassword
             // 
@@ -96,7 +97,7 @@ namespace AutoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(258, 155);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);

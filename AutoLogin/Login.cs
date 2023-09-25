@@ -14,9 +14,16 @@ namespace AutoLogin
             DbManager.uname = "adam";
             DbManager.psw = "Test1!";
             DbManager.convertToConStrg(false);
-            DbManager.openConnection();
+            //DbManager.openConnection();
         }
-        
 
+        public void buttonLogin_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            Dashboard dashboard1 = new Dashboard();           
+            dashboard1.Show();
+
+
+        }
     }
 }

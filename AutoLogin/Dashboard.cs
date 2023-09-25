@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace AutoLogin
 {
@@ -7,6 +8,11 @@ namespace AutoLogin
         public Dashboard()
         {
             InitializeComponent();
+        }
+
+        private void Dashboard_Load(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

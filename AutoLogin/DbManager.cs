@@ -68,11 +68,11 @@ namespace DatabaseManager {
             con.Close();
             return false;
         }
-        /*
+        
         //To get a list of all existing databases
         public List<String> getDatabases() {
-            SqlCommand cmd = new SqlCommand("select * from sys.databases", activeCon);
-            SqlDataReader reader = cmd.ExecuteReader();
+            MySqlCommand cmd = new MySqlCommand("select * from sys.databases", activeCon);
+            MySqlDataReader reader = cmd.ExecuteReader();
             List<String> Databases = new List<string>();
             while (reader.Read()) {
                 Databases.Add(reader.GetString(0));
@@ -82,27 +82,27 @@ namespace DatabaseManager {
         }
         //To create a new Database with a given name
         public static void createDatabase(string dbName) {
-            SqlConnection createCon = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Integrated security=SSPI;database=master");
+            MySqlConnection createCon = new MySqlConnection("Server=(localdb)\\MSSQLLocalDB;Integrated security=SSPI;database=master");
             string createConStr = "CREATE DATABASE " + dbName;
-            SqlCommand createCmd = new SqlCommand(createConStr, createCon);
+            MySqlCommand createCmd = new MySqlCommand(createConStr, createCon);
             createCon.Open();
             createCmd.ExecuteNonQuery();
             createCon.Close();
         }
         //To delete a database with a given name
         public static void deleteDatabase(string dbName) {
-            SqlConnection deleteCon = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Integrated security=SSPI;database=master");
+            MySqlConnection deleteCon = new MySqlConnection("Server=(localdb)\\MSSQLLocalDB;Integrated security=SSPI;database=master");
             string delDbStr = "DROP DATABASE IF EXISTS " + dbName;
-            SqlCommand delCmd = new SqlCommand(delDbStr, deleteCon);
+            MySqlCommand delCmd = new MySqlCommand(delDbStr, deleteCon);
             deleteCon.Open();
             delCmd.ExecuteNonQuery();
             deleteCon.Close();
         }
         //To change the name of a database
         public static void changeDatabaseName(string dbName, string newDbName) {
-            SqlConnection changeNameCon = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Integrated security=SSPI;database=master");
+            MySqlConnection changeNameCon = new MySqlConnection("Server=(localdb)\\MSSQLLocalDB;Integrated security=SSPI;database=master");
             string changeDbNameStr = "ALTER DATABASE " + dbName + " MODIFY NAME = " + newDbName;
-            SqlCommand changeCmd = new SqlCommand(changeDbNameStr, changeNameCon);
+            MySqlCommand changeCmd = new MySqlCommand(changeDbNameStr, changeNameCon);
             changeNameCon.Open();
             changeCmd.ExecuteNonQuery();
             changeNameCon.Close();
@@ -125,39 +125,39 @@ namespace DatabaseManager {
                 }
             }
             string variablesString = string.Join(" ", variables.ToArray());
-            SqlCommand cmd = new SqlCommand("CREATE TABLE " + tableName + " (" + variablesString +")", activeCon);
+            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tableName + " (" + variablesString +")", activeCon);
             cmd.ExecuteNonQuery();
         }
         public static void createPasswordTable(string tblName, string clmId, string clmUsername, string clmPassword) {
-            SqlCommand cmd = new SqlCommand("CREATE TABLE " + tblName + " (" + clmId + " int identity(1,1), " + clmUsername + " varChar(255), " + clmPassword+" varChar(110), primary key ("+ clmId+"))", activeCon);
+            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " int identity(1,1), " + clmUsername + " varChar(255), " + clmPassword+" varChar(110), primary key ("+ clmId+"))", activeCon);
             cmd.ExecuteNonQuery();
         }
         //An table will be deleted if an active connection is given
         public static void deleteTable(string tableName) {
-            SqlCommand cmd = new SqlCommand("DROP TABLE IF EXISTS " + tableName, activeCon);
+            MySqlCommand cmd = new MySqlCommand("DROP TABLE IF EXISTS " + tableName, activeCon);
             cmd.ExecuteNonQuery();
         }
 
         //To rename a table
         public static void renameTable(string name, string newName) {
-            SqlCommand cmd = new SqlCommand("ALTER TABLE " + name + " RENAME TO " + newName, activeCon);
+            MySqlCommand cmd = new MySqlCommand("ALTER TABLE " + name + " RENAME TO " + newName, activeCon);
             cmd.ExecuteNonQuery();
         }
 
         //To add a column in an table if a connection is opened
         public static void addColumnToTable(string tableName, string name, string type, string canNull) {
-                SqlCommand cmd = new SqlCommand("ALTER TABLE " + tableName + " ADD " + name + " " + type + " " + canNull, activeCon);
+            MySqlCommand cmd = new MySqlCommand("ALTER TABLE " + tableName + " ADD " + name + " " + type + " " + canNull, activeCon);
                 cmd.ExecuteNonQuery();
         }
         //To delete a column in an table if a connection is opened
         public static void deleteColumnFromTable(string tableName, string name) {
-            SqlCommand cmd = new SqlCommand("ALTER TABLE " + tableName + " DROP COLUMN " + name, activeCon);
+            MySqlCommand cmd = new MySqlCommand("ALTER TABLE " + tableName + " DROP COLUMN " + name, activeCon);
             cmd.ExecuteNonQuery();
         }
         //To check if a Table is existing in a Connected Database
         public static bool checkIfTableExists(string tableName) {
-            SqlCommand cmd = new SqlCommand("SELECT name FROM sys.tables", activeCon);
-            SqlDataReader reader = cmd.ExecuteReader();
+            MySqlCommand cmd = new MySqlCommand("SELECT name FROM sys.tables", activeCon);
+            MySqlDataReader reader = cmd.ExecuteReader();
             while(reader.Read()) {
                 if (reader.GetString(0).ToLower().Equals(tableName.ToLower())) {
                     reader.Close();
@@ -190,13 +190,13 @@ namespace DatabaseManager {
         public static void addDataToTable(string tableName, List<string> collumns, List<string> values) {
             string sCollumns = string.Format("{0}", string.Join(", ", collumns));
             string sValues = string.Format("'{0}'", string.Join("', '", values));
-            SqlCommand cmd = new SqlCommand("INSERT INTO " + tableName + " (" + sCollumns + ") VALUES (" + sValues + ")", activeCon);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (" + sCollumns + ") VALUES (" + sValues + ")", activeCon);
             cmd.ExecuteNonQuery();
         }
 
         public static bool addDataToPswTable(string tableName, string username, string password) {
-            SqlCommand readerCmd = new SqlCommand("SELECT username FROM " + tableName, activeCon);
-            SqlDataReader reader = readerCmd.ExecuteReader();
+            MySqlCommand readerCmd = new MySqlCommand("SELECT username FROM " + tableName, activeCon);
+            MySqlDataReader reader = readerCmd.ExecuteReader();
             int i = 0;
             while(reader.Read()) {
                 if (reader.GetString(i).Equals(username)) {
@@ -206,15 +206,15 @@ namespace DatabaseManager {
             }
             reader.Close();
             string hash = ToSHA256(password);
-            SqlCommand cmd = new SqlCommand("INSERT INTO " + tableName + " VALUES ('" + username + "', '" + hash + "')", activeCon);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " VALUES ('" + username + "', '" + hash + "')", activeCon);
             cmd.ExecuteNonQuery();
             return true;
         }
 
         //To check if a user with a password is in a password table
         public static bool checkPasswordUser(string tableName, string username, string password) {
-            SqlCommand cmd = new SqlCommand("SELECT password FROM " + tableName + " where username = '" + username + "'", activeCon);
-            SqlDataReader reader = cmd.ExecuteReader();
+            MySqlCommand cmd = new MySqlCommand("SELECT password FROM " + tableName + " where username = '" + username + "'", activeCon);
+            MySqlDataReader reader = cmd.ExecuteReader();
             List<string> passwords = new List<string>();
             int i = 0;
             while (reader.Read()) {
@@ -230,8 +230,8 @@ namespace DatabaseManager {
         }
         //To get the ID from User off an Password Table
         public static int getUserIdPasswordTable(string tableName, string username, string password) {
-            SqlCommand cmd = new SqlCommand("SELECT Id FROM " + tableName + " WHERE Username = '" + username + "'", activeCon);
-            SqlDataReader reader = cmd.ExecuteReader();
+            MySqlCommand cmd = new MySqlCommand("SELECT Id FROM " + tableName + " WHERE Username = '" + username + "'", activeCon);
+            MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
             int i = reader.GetInt32(0);
             reader.Close();
@@ -240,7 +240,7 @@ namespace DatabaseManager {
 
         //Date will be deleted from a Table. To define which row is meant, you have to tell which collumn (e.g. ID) and data (e.g. 15 (ID))
         public static void deleteDataFromTable(string tableName, string column, string content) {
-            SqlCommand cmd = new SqlCommand("DELETE FROM " + tableName + " WHERE " + column + " = " + content, activeCon);
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM " + tableName + " WHERE " + column + " = " + content, activeCon);
             cmd.ExecuteNonQuery();
         }
 
@@ -269,12 +269,12 @@ namespace DatabaseManager {
                 }
             }
             using (var varConnection = activeCon)
-            using (var sqlWrite = new SqlCommand("INSERT INTO Data (doc) Values(@File)", varConnection))
+            using (var sqlWrite = new MySqlCommand("INSERT INTO Data (doc) Values(@File)", varConnection))
             {
                 sqlWrite.Parameters.Add("@File", SqlDbType.VarBinary, file.Length).Value = file;
                 sqlWrite.ExecuteNonQuery();
             }
-        }*/
+        }
 
     }
 }

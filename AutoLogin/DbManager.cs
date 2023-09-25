@@ -5,26 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.IO;
 using System.Windows.Forms;
+
 
 namespace DatabaseManager {
     public class DbManager {
         //Management class for databases
         public static string connectionString, server, database, inteSec, uname, psw;
-        public static SqlConnection activeCon;
-
+        public static MySqlConnection activeCon;
 
         //Open a connection if the connectionString is already set
         public static void openConnection() {
             if (connectionString.Equals("")) return;
-            activeCon = new SqlConnection(connectionString);
+            activeCon = new MySqlConnection(connectionString);
             try {
                 activeCon.Open();
             } catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString(), "Error connecting to db");
+                MessageBox.Show("Error: " + ex.ToString() + "STRING: " + connectionString, "Error connecting to db");
             }
         }
 
@@ -45,7 +46,7 @@ namespace DatabaseManager {
             } else {
                 //Creating the string WITHOUT integrated Security
                 if (server.Equals("") || database.Equals("") || uname.Equals("") || psw.Equals("")) return;
-                connectionString = "Server = " + server + "; Database = " + database + "; User = " + uname + "; Password = " + psw + ";";
+                connectionString = "Server = " + server + "; Database = " + database + "; Uid = " + uname + "; Pwd = " + psw + ";";
             }
         }
 
@@ -53,10 +54,10 @@ namespace DatabaseManager {
 
         //To check if a database with a passed name is existing
         public static bool checkIfDbExists(string dbName) {
-            SqlConnection con = new SqlConnection(@"Server = (localdb)\MSSQLLocalDB; Database = Master; integrated security = true");
+            MySqlConnection con = new MySqlConnection(@"Server = (localdb)\MSSQLLocalDB; Database = Master; integrated security = true");
             con.Open();
-            SqlCommand checkCmd = new SqlCommand("select * from sys.databases", con);
-            SqlDataReader checkReader = checkCmd.ExecuteReader();
+            MySqlCommand checkCmd = new MySqlCommand("select * from sys.databases", con);
+            MySqlDataReader checkReader = checkCmd.ExecuteReader();
             while (checkReader.Read()) {
                 //Console.WriteLine(checkReader.GetString(0));
                 if(checkReader.GetString(0).ToLower().Equals(dbName.ToLower())) {
@@ -67,6 +68,7 @@ namespace DatabaseManager {
             con.Close();
             return false;
         }
+        /*
         //To get a list of all existing databases
         public List<String> getDatabases() {
             SqlCommand cmd = new SqlCommand("select * from sys.databases", activeCon);
@@ -272,7 +274,7 @@ namespace DatabaseManager {
                 sqlWrite.Parameters.Add("@File", SqlDbType.VarBinary, file.Length).Value = file;
                 sqlWrite.ExecuteNonQuery();
             }
-        }
+        }*/
 
     }
 }

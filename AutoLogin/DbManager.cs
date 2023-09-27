@@ -257,7 +257,7 @@ namespace DatabaseManager {
             return sb.ToString();
         }
 
-/*
+        /*
         public static void databaseFilePut(string varFilePath)
         {
             byte[] file;
@@ -276,6 +276,5 @@ namespace DatabaseManager {
             }
         }
         */
-
     }
 }

@@ -14,5 +14,10 @@ namespace AutoLogin
         {
 
         }
+
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

@@ -31,5 +31,10 @@ namespace AutoLogin
         {
             Environment.Exit(0);
         }
+
+        private void buttonLoginRegister_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

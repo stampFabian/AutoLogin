@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.textBoxRegisterEmail = new System.Windows.Forms.TextBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxRegisterUsername = new System.Windows.Forms.TextBox();
             this.textBoxRegisterPassword = new System.Windows.Forms.TextBox();
             this.textBoxRegisterPasswordCheck = new System.Windows.Forms.TextBox();
@@ -43,7 +41,6 @@
             this.labelRegisterPasswordSafety = new System.Windows.Forms.Label();
             this.labelRegisterRegistration = new System.Windows.Forms.Label();
             this.labelRegisterPasswordWrong = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxRegisterEmail
@@ -171,7 +168,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.Text = "Register";
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,7 +176,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBoxRegisterEmail;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.TextBox textBoxRegisterUsername;
         private System.Windows.Forms.TextBox textBoxRegisterPassword;
         private System.Windows.Forms.TextBox textBoxRegisterPasswordCheck;

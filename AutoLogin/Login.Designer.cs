@@ -103,6 +103,7 @@ namespace AutoLogin
             this.buttonLoginRegister.TabIndex = 6;
             this.buttonLoginRegister.Text = "Register";
             this.buttonLoginRegister.UseVisualStyleBackColor = true;
+            this.buttonLoginRegister.Click += new System.EventHandler(this.buttonLoginRegister_Click);
             // 
             // labelLoginRegister
             // 

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using DatabaseManager;
 
 namespace AutoLogin
@@ -24,6 +25,11 @@ namespace AutoLogin
             dashboard1.Show();
 
 
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

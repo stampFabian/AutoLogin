@@ -12,17 +12,31 @@ namespace AutoLogin
             InitializeComponent();
             DbManager.server = "localhost";
             DbManager.database = "database";
-            DbManager.uname = "adam";
+            DbManager.uname = "root";
             DbManager.psw = "Test1!";
             DbManager.convertToConStrg(false);
             DbManager.openConnection();
+            if (!DbManager.checkIfTableExists("users"))
+            {
+                DbManager.createPasswordTable("users", "uid", "username", "password");
+            }
+
+            
         }
 
         public void buttonLogin_Click(object sender, System.EventArgs e)
         {
-            this.Hide();
-            Dashboard dashboard1 = new Dashboard();           
-            dashboard1.Show();
+            if (DbManager.checkPasswordUser("users", textBoxUsername.Text, textBoxPassword.Text))
+            {
+                this.Hide();
+                Dashboard dashboard1 = new Dashboard();           
+                dashboard1.Show();
+            }
+            else
+            {
+                labelError.Visible = true;
+            }
+            
 
 
         }
@@ -34,7 +48,14 @@ namespace AutoLogin
 
         private void buttonLoginRegister_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Register register1 = new Register();
+            register1.Show();
+        }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            //throw new System.NotImplementedException();
         }
     }
 }

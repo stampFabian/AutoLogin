@@ -9,6 +9,8 @@ using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.IO;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 
 namespace DatabaseManager {
@@ -155,11 +157,12 @@ namespace DatabaseManager {
             cmd.ExecuteNonQuery();
         }
         //To check if a Table is existing in a Connected Database
-        public static bool checkIfTableExists(string tableName) {
-            MySqlCommand cmd = new MySqlCommand("SELECT name FROM sys.tables", activeCon);
+        public async static Task<bool> checkIfTableExists(string tableName) {
+            MySqlCommand cmd = new MySqlCommand("SELECT table_name FROM information_schema.tables", activeCon);
             MySqlDataReader reader = cmd.ExecuteReader();
-            while(reader.Read()) {
-                if (reader.GetString(0).ToLower().Equals(tableName.ToLower())) {
+            while (reader.Read()) {
+                string currentTableName = reader["table_name"].ToString(); // Hier wird der Alias verwendet
+                if (currentTableName.ToLower().Equals(tableName.ToLower())) {
                     reader.Close();
                     return true;
                 }
@@ -167,6 +170,7 @@ namespace DatabaseManager {
             reader.Close();
             return false;
         }
+
 
         public static void testExecute() {
             //where name = 'newAignerDB'
@@ -194,26 +198,34 @@ namespace DatabaseManager {
             cmd.ExecuteNonQuery();
         }
 
-        public static bool addDataToPswTable(string tableName, string username, string password) {
+        public static bool addDataToPswTable(string tableName, string username, string password)
+        {
             MySqlCommand readerCmd = new MySqlCommand("SELECT username FROM " + tableName, activeCon);
             MySqlDataReader reader = readerCmd.ExecuteReader();
-            int i = 0;
-            while(reader.Read()) {
-                if (reader.GetString(i).Equals(username)) {
+    
+            while (reader.Read())
+            {
+                if (reader.GetString(0).Equals(username))
+                {
                     reader.Close();
-                    return false;
+                    return false; // Username already exists, so return false.
                 }
             }
             reader.Close();
+
             string hash = ToSHA256(password);
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " VALUES ('" + username + "', '" + hash + "')", activeCon);
+    
+            // Explicitly specify the columns you want to insert data into.
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (username, hashed_password) VALUES ('" + username + "', '" + hash + "')", activeCon);
+
             cmd.ExecuteNonQuery();
-            return true;
+            return true; // Successfully inserted data.
         }
+
 
         //To check if a user with a password is in a password table
         public static bool checkPasswordUser(string tableName, string username, string password) {
-            MySqlCommand cmd = new MySqlCommand("SELECT password FROM " + tableName + " where username = '" + username + "'", activeCon);
+            MySqlCommand cmd = new MySqlCommand("SELECT hashed_password FROM " + tableName + " where username = '" + username + "'", activeCon);
             MySqlDataReader reader = cmd.ExecuteReader();
             List<string> passwords = new List<string>();
             int i = 0;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseManager;
 
@@ -10,18 +11,26 @@ namespace AutoLogin
         public Login()
         {
             InitializeComponent();
+            InitializeAsync();
+
+
+        }
+        
+        public async Task InitializeAsync()
+        {
             DbManager.server = "localhost";
             DbManager.database = "database";
             DbManager.uname = "root";
             DbManager.psw = "Test1!";
             DbManager.convertToConStrg(false);
             DbManager.openConnection();
-            if (!DbManager.checkIfTableExists("users"))
+
+            bool tableExists = await DbManager.checkIfTableExists("users");
+
+            if (!tableExists)
             {
                 DbManager.createPasswordTable("users", "uid", "username", "password");
             }
-
-            
         }
 
         public void buttonLogin_Click(object sender, System.EventArgs e)

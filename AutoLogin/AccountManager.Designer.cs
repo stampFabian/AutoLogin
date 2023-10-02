@@ -65,6 +65,7 @@ namespace AutoLogin
             this.cancelBtn.TabIndex = 2;
             this.cancelBtn.Text = "cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // dataGrid1
             // 
@@ -74,6 +75,7 @@ namespace AutoLogin
             this.dataGrid1.Name = "dataGrid1";
             this.dataGrid1.Size = new System.Drawing.Size(577, 268);
             this.dataGrid1.TabIndex = 3;
+            this.dataGrid1.Navigate += new System.Windows.Forms.NavigateEventHandler(this.dataGrid1_Navigate);
             // 
             // accNameLbl
             // 

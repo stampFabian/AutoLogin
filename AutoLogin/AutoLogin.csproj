@@ -165,5 +165,8 @@
   <ItemGroup>
     <None Include="Resources\SafetyPic.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\refresh.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

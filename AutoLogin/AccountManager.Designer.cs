@@ -36,7 +36,7 @@ namespace AutoLogin
             this.cancelBtn = new System.Windows.Forms.Button();
             this.dataGrid1 = new System.Windows.Forms.DataGrid();
             this.accNameLbl = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,20 +87,23 @@ namespace AutoLogin
             this.accNameLbl.TabIndex = 4;
             this.accNameLbl.Text = "see btn name";
             // 
-            // button1
+            // btnRefresh
             // 
-            this.button1.Location = new System.Drawing.Point(683, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 32);
-            this.button1.TabIndex = 5;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRefresh.BackgroundImage = global::AutoLogin.Properties.Resources.refresh;
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRefresh.Location = new System.Drawing.Point(683, 28);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(41, 43);
+            this.btnRefresh.TabIndex = 5;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // AccountManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.accNameLbl);
             this.Controls.Add(this.dataGrid1);
             this.Controls.Add(this.cancelBtn);
@@ -112,7 +115,7 @@ namespace AutoLogin
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRefresh;
 
         private System.Windows.Forms.Label accNameLbl;
 

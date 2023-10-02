@@ -19,5 +19,12 @@ namespace AutoLogin
         {
             Environment.Exit(0);
         }
+
+        private void dashboard_button_edit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AccountManager AccountManager = new AccountManager();           
+            AccountManager.Show();
+        }
     }
 }

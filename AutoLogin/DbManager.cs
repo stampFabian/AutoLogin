@@ -9,6 +9,8 @@ using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.IO;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 
 namespace DatabaseManager {
@@ -155,7 +157,7 @@ namespace DatabaseManager {
             cmd.ExecuteNonQuery();
         }
         //To check if a Table is existing in a Connected Database
-        public static bool checkIfTableExists(string tableName) {
+        public async static Task<bool> checkIfTableExists(string tableName) {
             MySqlCommand cmd = new MySqlCommand("SELECT table_name FROM information_schema.tables", activeCon);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read()) {

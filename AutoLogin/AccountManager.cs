@@ -66,5 +66,12 @@ namespace AutoLogin
             Dashboard dashboard = new Dashboard();           
             dashboard.Show();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            // TODO: refresh the data grid
+            
+            throw new System.NotImplementedException();
+        }
     }
 }

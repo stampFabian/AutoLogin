@@ -22,6 +22,7 @@ namespace AutoLogin
         }
         public async Task InitializeAsync()
         {
+
             DbManager.server = "localhost";
             DbManager.database = "database";
             DbManager.uname = "root";

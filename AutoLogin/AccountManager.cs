@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Data;
 using MySql.Data.MySqlClient;
 using DatabaseManager;
@@ -13,6 +12,8 @@ namespace AutoLogin
         public AccountManager()
         {
             InitializeComponent();
+            
+            DbManager.openConnection();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace AutoLogin
             // TODO: refresh the data grid
             
             // Open the database connection
-            DbManager.openConnection();
+            
 
             // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
             string tableName = "users"; // Replace with your actual table name
@@ -47,26 +48,38 @@ namespace AutoLogin
 
                 // Bind the DataTable to the DataGridView
                 dataGrid1.DataSource = dataTable;
+                
+                //---------------------------------------------
+                //test
+                //---------------------------------------------
+
+                //change the label to the username of the selected row
+                
+                
+                
+                
+                //string username = dataTable.Rows[0].Cells[1].Value.ToString();
+                //accNameLbl.Text = username;
+                
+                
+                
+                
+                /*string username = dataTable.ToString();
+                MessageBox.Show(username);
+                    
+                    //Instance.GetDataTable("users").Rows[0]["username"].ToString();
+                accNameLbl.Name = username;
+                */
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error fetching data");
+                MessageBox.Show(@"Error: " + ex.Message, @"Error fetching data");
             }
             finally
             {
                 // Close the database connection
                 DbManager.closeConnection();
             }
-            
-            /*
-            string connectionString = "YourConnectionString";
-            SqlConnection connection = new SqlConnection(connectionString);
-            SqlDataAdapter dataadapter = new SqlDataAdapter("select * from Customers", connection);
-            DataSet ds = new DataSet();
-            connection.Open();
-            dataadapter.Fill(ds, "Customers_table");
-            connection.Close();
-            */
         }
     }
 }

@@ -28,7 +28,6 @@ namespace DatabaseManager {
                 return true;
             } catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString() + "STRING: " + connectionString, "Error connecting to db");
                 return false;
             }
         }
@@ -133,16 +132,18 @@ namespace DatabaseManager {
             cmd.ExecuteNonQuery();
         }
         public static async Task<bool> createPasswordTable(string tblName, string clmId, string clmUsername, string clmPassword) {
-            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " int identity(1,1), " + clmUsername + " varChar(255), " + clmPassword+" varChar(110), primary key ("+ clmId+"))", activeCon);
+            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " INT AUTO_INCREMENT, " + clmUsername + " VARCHAR(255), " + clmPassword + " VARCHAR(110), PRIMARY KEY (" + clmId + "))", activeCon);
+
             try
             {
                 cmd.ExecuteNonQuery();
                 return true;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString(), "Error creating password table");
                 return false;
             }
+
         }
         //An table will be deleted if an active connection is given
         public static void deleteTable(string tableName) {

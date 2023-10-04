@@ -15,13 +15,22 @@ namespace AutoLogin
             InitializeComponent();
         }
 
-        private void dataGrid1_Navigate(object sender, NavigateEventArgs ne)
+        private void cancelBtn_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Dashboard dashboard = new Dashboard();           
+            dashboard.Show();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            // TODO: refresh the data grid
+            
             // Open the database connection
             DbManager.openConnection();
 
             // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
-            string tableName = "YourTableName"; // Replace with your actual table name
+            string tableName = "users"; // Replace with your actual table name
             string query = $"SELECT * FROM {tableName}";
 
             try
@@ -58,20 +67,6 @@ namespace AutoLogin
             dataadapter.Fill(ds, "Customers_table");
             connection.Close();
             */
-        }
-
-        private void cancelBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Dashboard dashboard = new Dashboard();           
-            dashboard.Show();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            // TODO: refresh the data grid
-            
-            throw new System.NotImplementedException();
         }
     }
 }

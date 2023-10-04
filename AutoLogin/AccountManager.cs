@@ -13,8 +13,6 @@ namespace AutoLogin
         public AccountManager()
         {
             InitializeComponent();
-
-            btnRefresh.Click
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)

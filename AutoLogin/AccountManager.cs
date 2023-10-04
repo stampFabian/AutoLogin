@@ -58,8 +58,8 @@ namespace AutoLogin
                 
                 
                 
-                //string username = dataTable.Rows[0].Cells[1].Value.ToString();
-                //accNameLbl.Text = username;
+                string username = dataTable.Rows[0].ToString();
+                accNameLbl.Text = username;
                 
                 
                 

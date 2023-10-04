@@ -20,14 +20,16 @@ namespace DatabaseManager {
         public static MySqlConnection activeCon;
 
         //Open a connection if the connectionString is already set
-        public static void openConnection() {
-            if (connectionString.Equals("")) return;
+        public async static Task<bool> openConnection() {
+            if (connectionString.Equals("")) return false;
             activeCon = new MySqlConnection(connectionString);
             try {
                 activeCon.Open();
+                return true;
             } catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.ToString() + "STRING: " + connectionString, "Error connecting to db");
+                return false;
             }
         }
 
@@ -130,9 +132,17 @@ namespace DatabaseManager {
             MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tableName + " (" + variablesString +")", activeCon);
             cmd.ExecuteNonQuery();
         }
-        public static void createPasswordTable(string tblName, string clmId, string clmUsername, string clmPassword) {
+        public static async Task<bool> createPasswordTable(string tblName, string clmId, string clmUsername, string clmPassword) {
             MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " int identity(1,1), " + clmUsername + " varChar(255), " + clmPassword+" varChar(110), primary key ("+ clmId+"))", activeCon);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString(), "Error creating password table");
+                return false;
+            }
         }
         //An table will be deleted if an active connection is given
         public static void deleteTable(string tableName) {
@@ -224,7 +234,7 @@ namespace DatabaseManager {
 
 
         //To check if a user with a password is in a password table
-        public static bool checkPasswordUser(string tableName, string username, string password) {
+        public async static Task<bool> checkPasswordUser(string tableName, string username, string password) {
             MySqlCommand cmd = new MySqlCommand("SELECT hashed_password FROM " + tableName + " where username = '" + username + "'", activeCon);
             MySqlDataReader reader = cmd.ExecuteReader();
             List<string> passwords = new List<string>();

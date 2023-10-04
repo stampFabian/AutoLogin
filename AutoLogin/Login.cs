@@ -23,31 +23,28 @@ namespace AutoLogin
             DbManager.uname = "root";
             DbManager.psw = "Test1!";
             DbManager.convertToConStrg(false);
-            DbManager.openConnection();
+            await DbManager.openConnection();
 
             bool tableExists = await DbManager.checkIfTableExists("users");
 
             if (!tableExists)
             {
-                DbManager.createPasswordTable("users", "uid", "username", "password");
+                await DbManager.createPasswordTable("users", "uid", "username", "password");
             }
         }
 
-        public void buttonLogin_Click(object sender, System.EventArgs e)
+        public async void buttonLogin_Click(object sender, System.EventArgs e)
         {
-            if (DbManager.checkPasswordUser("users", textBoxUsername.Text, textBoxPassword.Text))
+            if (await DbManager.checkPasswordUser("users", textBoxUsername.Text, textBoxPassword.Text))
             {
                 this.Hide();
-                Dashboard dashboard1 = new Dashboard();           
+                Dashboard dashboard1 = new Dashboard();
                 dashboard1.Show();
             }
             else
             {
                 labelError.Visible = true;
             }
-            
-
-
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)

@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoLogin {
-    internal static class Program {
+    internal static class Program
+    {
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>

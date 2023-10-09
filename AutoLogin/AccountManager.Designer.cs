@@ -57,6 +57,7 @@ namespace AutoLogin
             this.undoBtn.TabIndex = 1;
             this.undoBtn.Text = "undo changes";
             this.undoBtn.UseVisualStyleBackColor = true;
+            this.undoBtn.Click += new System.EventHandler(this.undoBtn_Click);
             // 
             // cancelBtn
             // 
@@ -76,6 +77,7 @@ namespace AutoLogin
             this.dataGrid1.Name = "dataGrid1";
             this.dataGrid1.Size = new System.Drawing.Size(577, 268);
             this.dataGrid1.TabIndex = 3;
+            //this.dataGrid1.Navigate += new System.Windows.Forms.NavigateEventHandler(this.dataGrid1_Navigate);
             // 
             // accNameLbl
             // 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseManager;
@@ -11,11 +12,14 @@ namespace AutoLogin
         public Login()
         {
             InitializeComponent();
-            InitializeAsync();
+            temp();
 
 
         }
-        
+        public async void temp()
+        {
+            await InitializeAsync();
+        }
         public async Task InitializeAsync()
         {
             DbManager.server = "localhost";
@@ -25,17 +29,17 @@ namespace AutoLogin
             DbManager.convertToConStrg(false);
             await DbManager.openConnection();
 
-            bool tableExists = await DbManager.checkIfTableExists("users");
+            bool tableExists = await DbManager.checkIfTableExists("users_table");
 
             if (!tableExists)
             {
-                await DbManager.createPasswordTable("users", "uid", "username", "password");
+                await DbManager.createPasswordTable("users_table", "uid", "username", "hashed_password");
             }
         }
 
         public async void buttonLogin_Click(object sender, System.EventArgs e)
         {
-            if (await DbManager.checkPasswordUser("users", textBoxUsername.Text, textBoxPassword.Text))
+            if (await DbManager.checkPasswordUser("users_table", textBoxUsername.Text, textBoxPassword.Text))
             {
                 this.Hide();
                 Dashboard dashboard1 = new Dashboard();

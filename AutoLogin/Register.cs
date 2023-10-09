@@ -22,7 +22,7 @@ namespace AutoLogin
         {
             if (textBoxRegisterPassword.Text.Equals(textBoxRegisterPasswordCheck.Text))
             {
-                if (DbManager.addDataToPswTable("users", textBoxRegisterUsername.Text, textBoxRegisterPassword.Text))
+                if (DbManager.addDataToPswTable("users_table", textBoxRegisterUsername.Text, textBoxRegisterPassword.Text))
                 {
                     MessageBox.Show("Account created!");
                     //Refer to login form

@@ -64,6 +64,7 @@
             this.textBoxRegisterPassword.Location = new System.Drawing.Point(216, 225);
             this.textBoxRegisterPassword.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxRegisterPassword.Name = "textBoxRegisterPassword";
+            this.textBoxRegisterPassword.PasswordChar = '*';
             this.textBoxRegisterPassword.Size = new System.Drawing.Size(196, 31);
             this.textBoxRegisterPassword.TabIndex = 2;
             // 
@@ -72,6 +73,7 @@
             this.textBoxRegisterPasswordCheck.Location = new System.Drawing.Point(216, 275);
             this.textBoxRegisterPasswordCheck.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxRegisterPasswordCheck.Name = "textBoxRegisterPasswordCheck";
+            this.textBoxRegisterPasswordCheck.PasswordChar = '*';
             this.textBoxRegisterPasswordCheck.Size = new System.Drawing.Size(196, 31);
             this.textBoxRegisterPasswordCheck.TabIndex = 3;
             // 
@@ -182,6 +184,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Register";
             this.Text = "Register";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Register_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

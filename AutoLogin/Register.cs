@@ -25,7 +25,9 @@ namespace AutoLogin
                 if (DbManager.addDataToPswTable("users_table", textBoxRegisterUsername.Text, textBoxRegisterPassword.Text))
                 {
                     MessageBox.Show("Account created!");
-                    //Refer to login form
+                    this.Hide();
+                    Login login1 = new Login();
+                    login1.Show();
                 }
                 else
                 {
@@ -36,6 +38,11 @@ namespace AutoLogin
             {
                 labelRegisterPasswordWrong.Visible = true;
             }
+        }
+
+        private void Register_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

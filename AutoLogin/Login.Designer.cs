@@ -48,7 +48,7 @@ namespace AutoLogin
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(6);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(150, 44);
-            this.buttonLogin.TabIndex = 0;
+            this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
@@ -58,8 +58,10 @@ namespace AutoLogin
             this.textBoxPassword.Location = new System.Drawing.Point(184, 119);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(298, 31);
             this.textBoxPassword.TabIndex = 1;
+            this.textBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPassword_KeyPress);
             // 
             // textBoxUsername
             // 
@@ -67,7 +69,7 @@ namespace AutoLogin
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(298, 31);
-            this.textBoxUsername.TabIndex = 2;
+            this.textBoxUsername.TabIndex = 0;
             // 
             // labelUsername
             // 
@@ -107,7 +109,7 @@ namespace AutoLogin
             this.buttonLoginRegister.Margin = new System.Windows.Forms.Padding(6);
             this.buttonLoginRegister.Name = "buttonLoginRegister";
             this.buttonLoginRegister.Size = new System.Drawing.Size(150, 44);
-            this.buttonLoginRegister.TabIndex = 6;
+            this.buttonLoginRegister.TabIndex = 3;
             this.buttonLoginRegister.Text = "Register";
             this.buttonLoginRegister.UseVisualStyleBackColor = true;
             this.buttonLoginRegister.Click += new System.EventHandler(this.buttonLoginRegister_Click);

@@ -9,6 +9,7 @@ namespace AutoLogin
     public partial class Login : Form
     {
         public DbManager dbm = new DbManager();
+        public static string username = "";
         public Login()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace AutoLogin
             if (await DbManager.checkPasswordUser("users_table", textBoxUsername.Text, textBoxPassword.Text))
             {
                 this.Hide();
+                username = textBoxUsername.Text;
                 Dashboard dashboard1 = new Dashboard();
                 dashboard1.Show();
             }
@@ -66,6 +68,14 @@ namespace AutoLogin
         private void Login_Load(object sender, EventArgs e)
         {
             //throw new System.NotImplementedException();
+        }
+
+        private void textBoxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                buttonLogin_Click(sender, e);
+            }
         }
     }
 }

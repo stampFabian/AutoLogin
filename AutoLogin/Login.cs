@@ -14,8 +14,6 @@ namespace AutoLogin
         {
             InitializeComponent();
             temp();
-
-
         }
         public async void temp()
         {

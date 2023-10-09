@@ -13,6 +13,7 @@ namespace AutoLogin
         {
             InitializeComponent();
             
+            // Opens the database connection
             DbManager.openConnection();
         }
 
@@ -25,11 +26,6 @@ namespace AutoLogin
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            // TODO: refresh the data grid
-            
-            // Open the database connection
-            
-
             // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
             string tableName = "users"; // Replace with your actual table name
             string query = $"SELECT * FROM {tableName}";
@@ -48,28 +44,14 @@ namespace AutoLogin
 
                 // Bind the DataTable to the DataGridView
                 dataGrid1.DataSource = dataTable;
-                
-                //---------------------------------------------
-                //test
-                //---------------------------------------------
 
-                //change the label to the username of the selected row
                 
-                
-                
-                
-                string username = dataTable.Rows[0].ToString();
+                //--change the name of the label to the username
+                // Get the current username from the database
+                string username = dataTable.Rows[0]["username"].ToString();
+
+                // Rename the btnRefresh button to the username
                 accNameLbl.Text = username;
-                
-                
-                
-                
-                /*string username = dataTable.ToString();
-                MessageBox.Show(username);
-                    
-                    //Instance.GetDataTable("users").Rows[0]["username"].ToString();
-                accNameLbl.Name = username;
-                */
             }
             catch (Exception ex)
             {
@@ -80,6 +62,11 @@ namespace AutoLogin
                 // Close the database connection
                 DbManager.closeConnection();
             }
+        }
+
+        private void undoBtn_Click(object sender, EventArgs e)
+        {
+            btnRefresh_Click(sender, e);
         }
     }
 }

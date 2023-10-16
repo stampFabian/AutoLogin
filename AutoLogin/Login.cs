@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseManager;
@@ -29,10 +30,40 @@ namespace AutoLogin
             await DbManager.openConnection();
 
             bool tableExists = await DbManager.checkIfTableExists("users_table");
-
+            bool tableAccExists = await DbManager.checkIfTableExists("account_table");
+            
             if (!tableExists)
             {
                 await DbManager.createPasswordTable("users_table", "uid", "username", "hashed_password");
+            }
+
+            if (!tableAccExists)
+            {
+                List<string> names = new List<string>();
+                names.Add("id");
+                names.Add("type");
+                names.Add("info");
+                names.Add("email");
+                names.Add("username");
+                names.Add("password");
+                
+                List<string> types = new List<string>();
+                types.Add("INT");
+                types.Add("VARCHAR(255)");
+                types.Add("VARCHAR(255)");
+                types.Add("VARCHAR(255)");
+                types.Add("VARCHAR(255)");
+                types.Add("VARCHAR(500)");
+                
+                List<string> cannull = new List<string>();
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                
+                await DbManager.createTable("account_table", names, types, cannull);
             }
         }
 

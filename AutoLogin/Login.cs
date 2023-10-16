@@ -52,6 +52,7 @@ namespace AutoLogin
                 names.Add("username");
                 names.Add("password");
                 
+
                 List<string> types = new List<string>();
                 types.Add("INT auto_increment PRIMARY KEY");
                 types.Add("VARCHAR(255)");
@@ -60,6 +61,7 @@ namespace AutoLogin
                 types.Add("VARCHAR(255)");
                 types.Add("VARCHAR(500)");
                 
+
                 List<string> canBeNull = new List<string>();
                 canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");

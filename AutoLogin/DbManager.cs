@@ -132,7 +132,7 @@ namespace DatabaseManager {
             await cmd.ExecuteNonQueryAsync();
         }
         public static async Task<bool> createPasswordTable(string tblName, string clmId, string clmUsername, string clmPassword) {
-            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " INT AUTO_INCREMENT, " + clmUsername + " VARCHAR(255), " + clmPassword + " VARCHAR(110), PRIMARY KEY (" + clmId + "))", activeCon);
+            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " INT AUTO_INCREMENT, " + clmUsername + " VARCHAR(255), " + clmPassword + " VARCHAR(110), email VARCHAR(255), PRIMARY KEY (" + clmId + "))", activeCon);
 
             try
             {
@@ -209,7 +209,7 @@ namespace DatabaseManager {
             cmd.ExecuteNonQuery();
         }
 
-        public static bool addDataToPswTable(string tableName, string username, string password)
+        public static bool addDataToPswTable(string tableName, string username, string password, string email)
         {
             MySqlCommand readerCmd = new MySqlCommand("SELECT username FROM " + tableName, activeCon);
             MySqlDataReader reader = readerCmd.ExecuteReader();
@@ -227,7 +227,7 @@ namespace DatabaseManager {
             string hash = ToSHA256(password);
     
             // Explicitly specify the columns you want to insert data into.
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (username, hashed_password) VALUES ('" + username + "', '" + hash + "')", activeCon);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (username, hashed_password, email) VALUES ('" + username + "', '" + hash + "','" + email + "')", activeCon);
 
             cmd.ExecuteNonQuery();
             return true; // Successfully inserted data.

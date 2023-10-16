@@ -33,31 +33,42 @@ namespace AutoLogin
 
             if (!tableExists)
             {
+                List<string> columns = new List<string>();
+                columns.Add("uid");
+                columns.Add("username");
+                columns.Add("hashed_password");
+                
                 await DbManager.createPasswordTable("users_table", "uid", "username", "hashed_password");
             }
             
             bool table2Exists = await DbManager.checkIfTableExists("accounts_table");
             if(!table2Exists)
             {
-                List<string> columns = new List<string>();
-                columns.Add("uid");
-                columns.Add("username");
-                columns.Add("password");
-                columns.Add("Mail");
-                columns.Add("url");
+                List<string> names = new List<string>();
+                names.Add("accid");
+                names.Add("type");
+                names.Add("info");
+                names.Add("email");
+                names.Add("username");
+                names.Add("password");
+                
                 List<string> types = new List<string>();
-                types.Add("INT");
+                types.Add("INT auto_increment PRIMARY KEY");
                 types.Add("VARCHAR(255)");
                 types.Add("VARCHAR(255)");
                 types.Add("VARCHAR(255)");
-                types.Add("VARCHAR(2500)");
+                types.Add("VARCHAR(255)");
+                types.Add("VARCHAR(500)");
+                
                 List<string> canBeNull = new List<string>();
                 canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");
-                await DbManager.createTable("accounts_table", columns, types, canBeNull);
+                canBeNull.Add("NOT NULL");
+                
+                await DbManager.createTable("accounts_table", names, types, canBeNull);
             }
         }
 

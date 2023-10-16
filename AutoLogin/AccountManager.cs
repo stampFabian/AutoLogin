@@ -27,7 +27,7 @@ namespace AutoLogin
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
-            string tableName = "users"; // Replace with your actual table name
+            string tableName = "users_table"; // Replace with your actual table name
             string query = $"SELECT * FROM {tableName}";
 
             try
@@ -46,7 +46,7 @@ namespace AutoLogin
                 dataGrid1.DataSource = dataTable;
 
                 
-                //--change the name of the label to the username
+                // Changes the name of the label to the username
                 // Get the current username from the database
                 string username = dataTable.Rows[0]["username"].ToString();
 

@@ -30,11 +30,23 @@ namespace AutoLogin
             await DbManager.openConnection();
 
             bool tableExists = await DbManager.checkIfTableExists("users_table");
-
+            bool tableAccExists = await DbManager.checkIfTableExists("account_table");
+            
             if (!tableExists)
             {
                 await DbManager.createPasswordTable("users_table", "uid", "username", "hashed_password");
             }
+
+            if (!tableAccExists)
+            {
+                List<string> names = new List<string>();
+                names.Add("id");
+                names.Add("type");
+                names.Add("info");
+                names.Add("email");
+                names.Add("username");
+                names.Add("password");
+                
             
             bool table2Exists = await DbManager.checkIfTableExists("accounts_table");
             if(!table2Exists)
@@ -50,6 +62,18 @@ namespace AutoLogin
                 types.Add("VARCHAR(255)");
                 types.Add("VARCHAR(255)");
                 types.Add("VARCHAR(255)");
+                types.Add("VARCHAR(255)");
+                types.Add("VARCHAR(500)");
+                
+                List<string> cannull = new List<string>();
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                cannull.Add("NOT NULL");
+                
+                await DbManager.createTable("account_table", names, types, cannull);
                 types.Add("VARCHAR(2500)");
                 List<string> canBeNull = new List<string>();
                 canBeNull.Add("NOT NULL");

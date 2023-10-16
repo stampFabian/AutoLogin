@@ -115,7 +115,7 @@ namespace DatabaseManager {
 
         //An table will be created if an active connection is given
         //Needs three lists: First one is the names of the collums, Second one is the type of the collums, Third one is if the collum can be null
-        public static void createTable(string tableName, List<string> names, List<string> types, List<string> canNull) {
+        public static async Task createTable(string tableName, List<string> names, List<string> types, List<string> canNull) {
             if (names.Count() != types.Count() || names.Count() != canNull.Count() || types.Count() != canNull.Count()) return;
             List<string> variables = new List<string>();
             for (int i = 0; i<names.Count(); i++) {
@@ -129,7 +129,7 @@ namespace DatabaseManager {
             }
             string variablesString = string.Join(" ", variables.ToArray());
             MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tableName + " (" + variablesString +")", activeCon);
-            cmd.ExecuteNonQuery();
+            await cmd.ExecuteNonQueryAsync();
         }
         public static async Task<bool> createPasswordTable(string tblName, string clmId, string clmUsername, string clmPassword) {
             MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " INT AUTO_INCREMENT, " + clmUsername + " VARCHAR(255), " + clmPassword + " VARCHAR(110), PRIMARY KEY (" + clmId + "))", activeCon);

@@ -40,6 +40,7 @@ namespace AutoLogin
             this.labelError = new System.Windows.Forms.Label();
             this.buttonLoginRegister = new System.Windows.Forms.Button();
             this.labelLoginRegister = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -140,12 +141,23 @@ namespace AutoLogin
             this.labelLoginRegister.TabIndex = 7;
             this.labelLoginRegister.Text = "No Account? Register here:";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.LinkColor = System.Drawing.SystemColors.ButtonShadow;
+            this.linkLabel1.Location = new System.Drawing.Point(50, 156);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(222, 38);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Forgot password?";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(516, 350);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.labelLoginRegister);
             this.Controls.Add(this.buttonLoginRegister);
             this.Controls.Add(this.labelError);
@@ -163,6 +175,8 @@ namespace AutoLogin
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.LinkLabel linkLabel1;
 
         #endregion
 

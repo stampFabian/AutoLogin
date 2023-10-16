@@ -47,6 +47,16 @@ namespace AutoLogin
                 names.Add("username");
                 names.Add("password");
                 
+            
+            bool table2Exists = await DbManager.checkIfTableExists("accounts_table");
+            if(!table2Exists)
+            {
+                List<string> columns = new List<string>();
+                columns.Add("uid");
+                columns.Add("username");
+                columns.Add("password");
+                columns.Add("Mail");
+                columns.Add("url");
                 List<string> types = new List<string>();
                 types.Add("INT");
                 types.Add("VARCHAR(255)");
@@ -64,6 +74,14 @@ namespace AutoLogin
                 cannull.Add("NOT NULL");
                 
                 await DbManager.createTable("account_table", names, types, cannull);
+                types.Add("VARCHAR(2500)");
+                List<string> canBeNull = new List<string>();
+                canBeNull.Add("NOT NULL");
+                canBeNull.Add("NOT NULL");
+                canBeNull.Add("NOT NULL");
+                canBeNull.Add("NOT NULL");
+                canBeNull.Add("NOT NULL");
+                await DbManager.createTable("accounts_table", columns, types, canBeNull);
             }
         }
 
@@ -105,6 +123,11 @@ namespace AutoLogin
             {
                 buttonLogin_Click(sender, e);
             }
+        }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

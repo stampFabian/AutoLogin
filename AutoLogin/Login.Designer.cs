@@ -44,17 +44,24 @@ namespace AutoLogin
             // 
             // buttonLogin
             // 
+            this.buttonLogin.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonLogin.FlatAppearance.BorderSize = 0;
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonLogin.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonLogin.Location = new System.Drawing.Point(336, 223);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(6);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(150, 44);
             this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxPassword.ForeColor = System.Drawing.SystemColors.Control;
             this.textBoxPassword.Location = new System.Drawing.Point(184, 119);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -65,6 +72,9 @@ namespace AutoLogin
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxUsername.ForeColor = System.Drawing.SystemColors.Control;
             this.textBoxUsername.Location = new System.Drawing.Point(184, 69);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(6);
             this.textBoxUsername.Name = "textBoxUsername";
@@ -74,6 +84,7 @@ namespace AutoLogin
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
+            this.labelUsername.ForeColor = System.Drawing.SystemColors.Control;
             this.labelUsername.Location = new System.Drawing.Point(50, 75);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelUsername.Name = "labelUsername";
@@ -84,6 +95,7 @@ namespace AutoLogin
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
+            this.labelPassword.ForeColor = System.Drawing.SystemColors.Control;
             this.labelPassword.Location = new System.Drawing.Point(50, 125);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelPassword.Name = "labelPassword";
@@ -105,18 +117,22 @@ namespace AutoLogin
             // 
             // buttonLoginRegister
             // 
+            this.buttonLoginRegister.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.buttonLoginRegister.FlatAppearance.BorderSize = 0;
+            this.buttonLoginRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLoginRegister.Location = new System.Drawing.Point(336, 279);
             this.buttonLoginRegister.Margin = new System.Windows.Forms.Padding(6);
             this.buttonLoginRegister.Name = "buttonLoginRegister";
             this.buttonLoginRegister.Size = new System.Drawing.Size(150, 44);
             this.buttonLoginRegister.TabIndex = 3;
             this.buttonLoginRegister.Text = "Register";
-            this.buttonLoginRegister.UseVisualStyleBackColor = true;
+            this.buttonLoginRegister.UseVisualStyleBackColor = false;
             this.buttonLoginRegister.Click += new System.EventHandler(this.buttonLoginRegister_Click);
             // 
             // labelLoginRegister
             // 
             this.labelLoginRegister.AutoSize = true;
+            this.labelLoginRegister.ForeColor = System.Drawing.SystemColors.Control;
             this.labelLoginRegister.Location = new System.Drawing.Point(50, 288);
             this.labelLoginRegister.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelLoginRegister.Name = "labelLoginRegister";
@@ -128,6 +144,7 @@ namespace AutoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(516, 350);
             this.Controls.Add(this.labelLoginRegister);
             this.Controls.Add(this.buttonLoginRegister);

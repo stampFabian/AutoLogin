@@ -27,7 +27,7 @@ namespace AutoLogin
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
-            string tableName = "users_table"; // Replace with your actual table name
+            string tableName = "accounts_table"; // Replace with your actual table name
             string query = $"SELECT * FROM {tableName}";
 
             try
@@ -67,6 +67,15 @@ namespace AutoLogin
         private void undoBtn_Click(object sender, EventArgs e)
         {
             btnRefresh_Click(sender, e);
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            string type = tbType.Text;
+            string info = tbInfo.Text;
+            string email = tbEmail.Text;
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
         }
     }
 }

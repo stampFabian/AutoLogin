@@ -84,6 +84,9 @@ namespace AutoLogin
             //execute query
             try
             {
+                //DbManager.addDataToTable("TALBE NAME", "LISTE AN COLUMNS", "LISTE AN VALUES");
+                
+                
                 MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
                 MySqlDataReader reader = command.ExecuteReader();
                 

@@ -202,11 +202,20 @@ namespace DatabaseManager {
         //----------------------------------------- DATA
 
         //Data will be added to an table if available and if an active connection is given
-        public static void addDataToTable(string tableName, List<string> collumns, List<string> values) {
-            string sCollumns = string.Format("{0}", string.Join(", ", collumns));
-            string sValues = string.Format("'{0}'", string.Join("', '", values));
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (" + sCollumns + ") VALUES (" + sValues + ")", activeCon);
-            cmd.ExecuteNonQuery();
+        public static async Task<bool> addDataToTable(string tableName, List<string> collumns, List<string> values) {
+            try
+            {
+                string sCollumns = string.Format("{0}", string.Join(", ", collumns));
+                string sValues = string.Format("'{0}'", string.Join("', '", values));
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (" + sCollumns + ") VALUES (" + sValues + ")", activeCon);
+                await cmd.ExecuteNonQueryAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            
         }
 
         public static bool addDataToPswTable(string tableName, string username, string password, string email)

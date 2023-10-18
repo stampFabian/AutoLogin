@@ -59,7 +59,6 @@ namespace AutoLogin
             }
             finally
             {
-                // Close the database connection
                 DbManager.closeConnection();
             }
         }
@@ -76,6 +75,28 @@ namespace AutoLogin
             string email = tbEmail.Text;
             string username = tbUsername.Text;
             string password = tbPassword.Text;
+            
+            //insert details into table
+            
+            string tableName = "accounts_table";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password) VALUES('{type}', '{info}', '{email}', '{username}', '{password}')";
+            
+            //execute query
+            try
+            {
+                MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
+                MySqlDataReader reader = command.ExecuteReader();
+                
+                MessageBox.Show("Account added successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(@"Error: " + ex.Message, @"Error adding account");
+            }
+            finally
+            {
+                DbManager.closeConnection();
+            }
         }
     }
 }

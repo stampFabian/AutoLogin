@@ -46,6 +46,7 @@ namespace AutoLogin
             {
                 List<string> names = new List<string>();
                 names.Add("accid");
+                names.Add("uid");
                 names.Add("type");
                 names.Add("info");
                 names.Add("email");
@@ -55,6 +56,7 @@ namespace AutoLogin
 
                 List<string> types = new List<string>();
                 types.Add("INT auto_increment PRIMARY KEY");
+                types.Add("INT");
                 types.Add("VARCHAR(255)");
                 types.Add("VARCHAR(255)");
                 types.Add("VARCHAR(255)");
@@ -63,6 +65,7 @@ namespace AutoLogin
                 
 
                 List<string> canBeNull = new List<string>();
+                canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");
                 canBeNull.Add("NOT NULL");

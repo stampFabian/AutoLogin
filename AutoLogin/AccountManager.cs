@@ -3,6 +3,8 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using DatabaseManager;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 
 namespace AutoLogin
@@ -12,9 +14,6 @@ namespace AutoLogin
         public AccountManager()
         {
             InitializeComponent();
-            
-            // Opens the database connection
-            DbManager.openConnection();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -57,10 +56,6 @@ namespace AutoLogin
             {
                 MessageBox.Show(@"Error: " + ex.Message, @"Error fetching data");
             }
-            finally
-            {
-                DbManager.closeConnection();
-            }
         }
 
         private void undoBtn_Click(object sender, EventArgs e)
@@ -68,38 +63,37 @@ namespace AutoLogin
             btnRefresh_Click(sender, e);
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private async void addBtn_Click(object sender, EventArgs e)
         {
-            string type = tbType.Text;
-            string info = tbInfo.Text;
-            string email = tbEmail.Text;
-            string username = tbUsername.Text;
-            string password = tbPassword.Text;
+            List<string> columns = new List<string>();
+            columns.Add("type");
+            columns.Add("info");
+            columns.Add("email");
+            columns.Add("username");
+            columns.Add("password");
+            
+            List<string> values = new List<string>();
+            values.Add(tbType.Text);
+            values.Add(tbInfo.Text);
+            values.Add(tbEmail.Text);
+            values.Add(tbUsername.Text);
+            values.Add(tbPassword.Text);
             
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password) VALUES('{type}', '{info}', '{email}', '{username}', '{password}')";
             
             //execute query
-            try
+            
+            bool task1 = await DbManager.addDataToTable(tableName, columns, values);
+
+            if (task1)
             {
-                //DbManager.addDataToTable("TALBE NAME", "LISTE AN COLUMNS", "LISTE AN VALUES");
-                
-                
-                MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
-                MySqlDataReader reader = command.ExecuteReader();
-                
-                MessageBox.Show("Account added successfully");
+                MessageBox.Show(@"Account added successfully", @"Success");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(@"Error: " + ex.Message, @"Error adding account");
-            }
-            finally
-            {
-                DbManager.closeConnection();
-            }
+            
+            // Refresh the data grid
+            btnRefresh_Click(sender, e);
         }
     }
 }

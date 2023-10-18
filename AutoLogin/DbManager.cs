@@ -251,9 +251,11 @@ namespace DatabaseManager {
             int i = 0;
             while (reader.Read()) {
                 string h = ToSHA256(password);
-                if(h.Equals(reader.GetString(i + 1))) {
+                if(h.Equals(reader.GetString(i + 1)))
+                {
+                    int uid = reader.GetInt32(i);
                     reader.Close();
-                    return reader.GetInt32(i);
+                    return uid;
                 }
                 i++;
             }

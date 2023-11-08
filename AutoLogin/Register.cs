@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseManager;
+using MySql.Data.MySqlClient;
 
 namespace AutoLogin
 {
@@ -22,6 +23,11 @@ namespace AutoLogin
         {
             if (textBoxRegisterPassword.Text.Equals(textBoxRegisterPasswordCheck.Text))
             {
+                //Check if email already exists in users_table
+                 string query = "SELECT * FROM users_table WHERE email = '" + textBoxRegisterEmail.Text + "'";
+                 MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
+                 
+                
                 if (DbManager.addDataToPswTable("users_table", textBoxRegisterUsername.Text, textBoxRegisterPassword.Text, textBoxRegisterEmail.Text))
                 {
                     MessageBox.Show("Account created!");

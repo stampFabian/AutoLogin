@@ -41,6 +41,7 @@
             this.labelRegisterPasswordSafety = new System.Windows.Forms.Label();
             this.labelRegisterRegistration = new System.Windows.Forms.Label();
             this.labelRegisterPasswordWrong = new System.Windows.Forms.Label();
+            this.labelRegisterEmailExists = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxRegisterEmail
@@ -135,9 +136,9 @@
             this.labelRegisterPasswordSafety.Location = new System.Drawing.Point(428, 231);
             this.labelRegisterPasswordSafety.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelRegisterPasswordSafety.Name = "labelRegisterPasswordSafety";
-            this.labelRegisterPasswordSafety.Size = new System.Drawing.Size(239, 25);
+            this.labelRegisterPasswordSafety.Size = new System.Drawing.Size(198, 25);
             this.labelRegisterPasswordSafety.TabIndex = 9;
-            this.labelRegisterPasswordSafety.Text = "Password Not Available";
+            this.labelRegisterPasswordSafety.Text = "Password too weak";
             this.labelRegisterPasswordSafety.Visible = false;
             // 
             // labelRegisterRegistration
@@ -158,16 +159,29 @@
             this.labelRegisterPasswordWrong.Location = new System.Drawing.Point(428, 281);
             this.labelRegisterPasswordWrong.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelRegisterPasswordWrong.Name = "labelRegisterPasswordWrong";
-            this.labelRegisterPasswordWrong.Size = new System.Drawing.Size(175, 25);
+            this.labelRegisterPasswordWrong.Size = new System.Drawing.Size(131, 25);
             this.labelRegisterPasswordWrong.TabIndex = 11;
-            this.labelRegisterPasswordWrong.Text = "Password Wrong";
+            this.labelRegisterPasswordWrong.Text = "Check failed";
             this.labelRegisterPasswordWrong.Visible = false;
+            // 
+            // labelRegisterEmailExists
+            // 
+            this.labelRegisterEmailExists.AutoSize = true;
+            this.labelRegisterEmailExists.ForeColor = System.Drawing.Color.Red;
+            this.labelRegisterEmailExists.Location = new System.Drawing.Point(428, 131);
+            this.labelRegisterEmailExists.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelRegisterEmailExists.Name = "labelRegisterEmailExists";
+            this.labelRegisterEmailExists.Size = new System.Drawing.Size(147, 25);
+            this.labelRegisterEmailExists.TabIndex = 12;
+            this.labelRegisterEmailExists.Text = "Already exists";
+            this.labelRegisterEmailExists.Visible = false;
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 433);
+            this.Controls.Add(this.labelRegisterEmailExists);
             this.Controls.Add(this.labelRegisterPasswordWrong);
             this.Controls.Add(this.labelRegisterRegistration);
             this.Controls.Add(this.labelRegisterPasswordSafety);
@@ -188,6 +202,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label labelRegisterEmailExists;
 
         #endregion
 

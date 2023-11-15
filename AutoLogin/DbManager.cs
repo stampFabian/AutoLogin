@@ -246,21 +246,23 @@ namespace DatabaseManager {
 
 
         //To check if a user with a password is in a password table
-        public async static Task<bool> checkPasswordUser(string tableName, string username, string password) {
-            MySqlCommand cmd = new MySqlCommand("SELECT hashed_password FROM " + tableName + " where username = '" + username + "'", activeCon);
+        public async static Task<int> checkPasswordUser(string tableName, string username, string password) {
+            MySqlCommand cmd = new MySqlCommand("SELECT uid, hashed_password FROM " + tableName + " where username = '" + username + "'", activeCon);
             MySqlDataReader reader = cmd.ExecuteReader();
             List<string> passwords = new List<string>();
             int i = 0;
             while (reader.Read()) {
                 string h = ToSHA256(password);
-                if(h.Equals(reader.GetString(i))) {
+                if(h.Equals(reader.GetString(i + 1)))
+                {
+                    int uid = reader.GetInt32(i);
                     reader.Close();
-                    return true;
+                    return uid;
                 }
                 i++;
             }
             reader.Close();
-            return false;
+            return 0;
         }
         //To get the ID from User off an Password Table
         public static int getUserIdPasswordTable(string tableName, string username, string password) {

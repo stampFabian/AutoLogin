@@ -11,6 +11,7 @@ namespace AutoLogin
     {
         public DbManager dbm = new DbManager();
         public static string username = "";
+        public static int uid = 0;
         public Login()
         {
             InitializeComponent();
@@ -79,8 +80,10 @@ namespace AutoLogin
 
         public async void buttonLogin_Click(object sender, System.EventArgs e)
         {
-            if (await DbManager.checkPasswordUser("users_table", textBoxUsername.Text, textBoxPassword.Text))
+            int uid2 = await DbManager.checkPasswordUser("users_table", textBoxUsername.Text, textBoxPassword.Text);
+            if (uid2 != 0)
             {
+                uid = uid2;
                 this.Hide();
                 username = textBoxUsername.Text;
                 Dashboard dashboard1 = new Dashboard();

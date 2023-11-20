@@ -34,7 +34,7 @@ namespace AutoLogin
         {
             // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
             string tableName = "accounts_table"; // Replace with your actual table name
-            string query = $"SELECT * FROM {tableName} where username = '{Login.username}'";
+            string query = $"SELECT * FROM {tableName} where uid = '{Login.uid}'";
 
             try
             {
@@ -84,11 +84,12 @@ namespace AutoLogin
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password) VALUES('{type}', '{info}', '{email}', '{username}', '{password}')";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}', '{Login.uid}')";
             
             //execute query
             try
             {
+                DbManager.openConnection();
                 //DbManager.addDataToTable("TALBE NAME", "LISTE AN COLUMNS", "LISTE AN VALUES");
                 
                 

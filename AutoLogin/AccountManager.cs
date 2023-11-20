@@ -44,7 +44,7 @@ namespace AutoLogin
 
                 adapter.Fill(dataTable);
 
-                if (dataTable.Rows.Count > 0) // tests if any data was returned
+                if (dataTable.Rows.Count > 0) // checks if any data was returned
                 {
                     dataGrid1.DataSource = dataTable;
 
@@ -54,12 +54,12 @@ namespace AutoLogin
                 else
                 {
                     // if no data was returned, show a message box
-                    MessageBox.Show("Keine Daten gefunden.", "Information");
+                    MessageBox.Show("No Data Found", "Information");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Fehler: " + ex.Message, @"Fehler beim Abrufen der Daten");
+                MessageBox.Show(@"Error: " + ex.Message, @"Error when retrieving the data");
             }
             finally
             {

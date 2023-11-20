@@ -44,7 +44,7 @@ namespace AutoLogin
 
                 adapter.Fill(dataTable);
 
-                if (dataTable.Rows.Count > 0) // Überprüfe, ob Daten vorhanden sind
+                if (dataTable.Rows.Count > 0) // tests if any data was returned
                 {
                     dataGrid1.DataSource = dataTable;
 
@@ -53,7 +53,7 @@ namespace AutoLogin
                 }
                 else
                 {
-                    // Keine Daten vorhanden, zeige eine entsprechende Meldung an oder handle den Fall
+                    // if no data was returned, show a message box
                     MessageBox.Show("Keine Daten gefunden.", "Information");
                 }
             }
@@ -65,7 +65,6 @@ namespace AutoLogin
             {
                 DbManager.closeConnection();
             }
-
         }
 
         private void undoBtn_Click(object sender, EventArgs e)
@@ -90,9 +89,6 @@ namespace AutoLogin
             try
             {
                 DbManager.openConnection();
-                
-                //DbManager.addDataToTable("TALBE NAME", "LISTE AN COLUMNS", "LISTE AN VALUES");
-                
                 
                 MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
                 MySqlDataReader reader = command.ExecuteReader();

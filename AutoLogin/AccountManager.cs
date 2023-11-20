@@ -38,35 +38,34 @@ namespace AutoLogin
 
             try
             {
-                // Create a MySqlCommand and MySqlDataAdapter
                 MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-
-                // Create a DataTable to store the data
                 DataTable dataTable = new DataTable();
 
-                // Fill the DataTable with data from the database
                 adapter.Fill(dataTable);
 
-                // Bind the DataTable to the DataGridView
-                dataGrid1.DataSource = dataTable;
+                if (dataTable.Rows.Count > 0) // Überprüfe, ob Daten vorhanden sind
+                {
+                    dataGrid1.DataSource = dataTable;
 
-                
-                // Changes the name of the label to the username
-                // Get the current username from the database
-                string username = dataTable.Rows[0]["username"].ToString();
-
-                // Rename the btnRefresh button to the username
-                accNameLbl.Text = username;
+                    string username = dataTable.Rows[0]["username"].ToString();
+                    accNameLbl.Text = username;
+                }
+                else
+                {
+                    // Keine Daten vorhanden, zeige eine entsprechende Meldung an oder handle den Fall
+                    MessageBox.Show("Keine Daten gefunden.", "Information");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Error: " + ex.Message, @"Error fetching data");
+                MessageBox.Show(@"Fehler: " + ex.Message, @"Fehler beim Abrufen der Daten");
             }
             finally
             {
                 DbManager.closeConnection();
             }
+
         }
 
         private void undoBtn_Click(object sender, EventArgs e)

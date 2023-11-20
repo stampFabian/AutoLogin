@@ -84,12 +84,13 @@ namespace AutoLogin
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}', '{Login.uid}')";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{Login.uid}')";
             
             //execute query
             try
             {
                 DbManager.openConnection();
+                
                 //DbManager.addDataToTable("TALBE NAME", "LISTE AN COLUMNS", "LISTE AN VALUES");
                 
                 

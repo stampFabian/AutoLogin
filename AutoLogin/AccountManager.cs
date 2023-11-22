@@ -79,11 +79,12 @@ namespace AutoLogin
             string email = tbEmail.Text;
             string username = tbUsername.Text;
             string password = tbPassword.Text;
+            string link = tbLink.Text;
             
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{Login.uid}')";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}')";
             
             //execute query
             try

@@ -50,7 +50,7 @@ namespace AutoLogin
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLogin.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonLogin.Location = new System.Drawing.Point(224, 143);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(100, 28);
             this.buttonLogin.TabIndex = 2;
@@ -64,7 +64,7 @@ namespace AutoLogin
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPassword.ForeColor = System.Drawing.SystemColors.Control;
             this.textBoxPassword.Location = new System.Drawing.Point(123, 76);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(199, 22);
@@ -77,7 +77,7 @@ namespace AutoLogin
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxUsername.ForeColor = System.Drawing.SystemColors.Control;
             this.textBoxUsername.Location = new System.Drawing.Point(123, 44);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(199, 22);
             this.textBoxUsername.TabIndex = 0;
@@ -122,7 +122,7 @@ namespace AutoLogin
             this.buttonLoginRegister.FlatAppearance.BorderSize = 0;
             this.buttonLoginRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLoginRegister.Location = new System.Drawing.Point(224, 179);
-            this.buttonLoginRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonLoginRegister.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLoginRegister.Name = "buttonLoginRegister";
             this.buttonLoginRegister.Size = new System.Drawing.Size(100, 28);
             this.buttonLoginRegister.TabIndex = 3;
@@ -168,7 +168,7 @@ namespace AutoLogin
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.buttonLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);

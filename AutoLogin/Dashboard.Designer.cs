@@ -44,7 +44,7 @@ namespace AutoLogin
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(68, 140);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(313, 24);
             this.comboBox1.TabIndex = 0;
@@ -74,7 +74,7 @@ namespace AutoLogin
             // 
             this.dashboard_button_login.Font = new System.Drawing.Font("Trebuchet MS", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button_login.Location = new System.Drawing.Point(68, 173);
-            this.dashboard_button_login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashboard_button_login.Margin = new System.Windows.Forms.Padding(2);
             this.dashboard_button_login.Name = "dashboard_button_login";
             this.dashboard_button_login.Size = new System.Drawing.Size(312, 51);
             this.dashboard_button_login.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace AutoLogin
             // 
             this.dashboard_button_edit.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button_edit.Location = new System.Drawing.Point(68, 236);
-            this.dashboard_button_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dashboard_button_edit.Margin = new System.Windows.Forms.Padding(2);
             this.dashboard_button_edit.Name = "dashboard_button_edit";
             this.dashboard_button_edit.Size = new System.Drawing.Size(145, 35);
             this.dashboard_button_edit.TabIndex = 4;
@@ -114,7 +114,7 @@ namespace AutoLogin
             this.Controls.Add(this.dashboard_label_title);
             this.Controls.Add(this.comboBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);

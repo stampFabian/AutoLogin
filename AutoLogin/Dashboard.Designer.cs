@@ -31,6 +31,7 @@ namespace AutoLogin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dashboard_label_title = new System.Windows.Forms.Label();
             this.dashboard_label_combolbl = new System.Windows.Forms.Label();
@@ -42,36 +43,40 @@ namespace AutoLogin
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(102, 219);
+            this.comboBox1.Location = new System.Drawing.Point(68, 140);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(468, 33);
+            this.comboBox1.Size = new System.Drawing.Size(313, 24);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // dashboard_label_title
             // 
             this.dashboard_label_title.Font = new System.Drawing.Font("Trebuchet MS", 25.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboard_label_title.Location = new System.Drawing.Point(88, 41);
+            this.dashboard_label_title.Location = new System.Drawing.Point(59, 26);
+            this.dashboard_label_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dashboard_label_title.Name = "dashboard_label_title";
-            this.dashboard_label_title.Size = new System.Drawing.Size(690, 80);
+            this.dashboard_label_title.Size = new System.Drawing.Size(460, 51);
             this.dashboard_label_title.TabIndex = 1;
             this.dashboard_label_title.Text = "Dashboard";
             // 
             // dashboard_label_combolbl
             // 
             this.dashboard_label_combolbl.Font = new System.Drawing.Font("Trebuchet MS", 7.875F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboard_label_combolbl.Location = new System.Drawing.Point(102, 178);
+            this.dashboard_label_combolbl.Location = new System.Drawing.Point(68, 114);
+            this.dashboard_label_combolbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dashboard_label_combolbl.Name = "dashboard_label_combolbl";
-            this.dashboard_label_combolbl.Size = new System.Drawing.Size(466, 38);
+            this.dashboard_label_combolbl.Size = new System.Drawing.Size(311, 24);
             this.dashboard_label_combolbl.TabIndex = 2;
             this.dashboard_label_combolbl.Text = "Zum anmelden auswählen";
             // 
             // dashboard_button_login
             // 
             this.dashboard_button_login.Font = new System.Drawing.Font("Trebuchet MS", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboard_button_login.Location = new System.Drawing.Point(102, 270);
+            this.dashboard_button_login.Location = new System.Drawing.Point(68, 173);
+            this.dashboard_button_login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dashboard_button_login.Name = "dashboard_button_login";
-            this.dashboard_button_login.Size = new System.Drawing.Size(468, 80);
+            this.dashboard_button_login.Size = new System.Drawing.Size(312, 51);
             this.dashboard_button_login.TabIndex = 3;
             this.dashboard_button_login.Text = "Anmelden";
             this.dashboard_button_login.UseVisualStyleBackColor = true;
@@ -79,9 +84,10 @@ namespace AutoLogin
             // dashboard_button_edit
             // 
             this.dashboard_button_edit.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dashboard_button_edit.Location = new System.Drawing.Point(102, 369);
+            this.dashboard_button_edit.Location = new System.Drawing.Point(68, 236);
+            this.dashboard_button_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dashboard_button_edit.Name = "dashboard_button_edit";
-            this.dashboard_button_edit.Size = new System.Drawing.Size(218, 55);
+            this.dashboard_button_edit.Size = new System.Drawing.Size(145, 35);
             this.dashboard_button_edit.TabIndex = 4;
             this.dashboard_button_edit.Text = "Bearbeiten";
             this.dashboard_button_edit.UseVisualStyleBackColor = true;
@@ -89,24 +95,26 @@ namespace AutoLogin
             // 
             // dashboard_lbl_username
             // 
-            this.dashboard_lbl_username.Location = new System.Drawing.Point(102, 125);
+            this.dashboard_lbl_username.Location = new System.Drawing.Point(68, 80);
+            this.dashboard_lbl_username.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dashboard_lbl_username.Name = "dashboard_lbl_username";
-            this.dashboard_lbl_username.Size = new System.Drawing.Size(352, 29);
+            this.dashboard_lbl_username.Size = new System.Drawing.Size(235, 19);
             this.dashboard_lbl_username.TabIndex = 5;
             this.dashboard_lbl_username.Click += new System.EventHandler(this.dashboard_lbl_username_Click);
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1600, 866);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.dashboard_lbl_username);
             this.Controls.Add(this.dashboard_button_edit);
             this.Controls.Add(this.dashboard_button_login);
             this.Controls.Add(this.dashboard_label_combolbl);
             this.Controls.Add(this.dashboard_label_title);
             this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);

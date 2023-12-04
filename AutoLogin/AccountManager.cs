@@ -44,7 +44,7 @@ namespace AutoLogin
 
                 adapter.Fill(dataTable);
 
-                if (dataTable.Rows.Count > 0) // Überprüfe, ob Daten vorhanden sind
+                if (dataTable.Rows.Count > 0) // checks if any data was returned
                 {
                     dataGrid1.DataSource = dataTable;
 
@@ -53,19 +53,18 @@ namespace AutoLogin
                 }
                 else
                 {
-                    // Keine Daten vorhanden, zeige eine entsprechende Meldung an oder handle den Fall
-                    MessageBox.Show("Keine Daten gefunden.", "Information");
+                    // if no data was returned, show a message box
+                    MessageBox.Show("No Data Found", "Information");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Fehler: " + ex.Message, @"Fehler beim Abrufen der Daten");
+                MessageBox.Show(@"Error: " + ex.Message, @"Error when retrieving the data");
             }
             finally
             {
                 DbManager.closeConnection();
             }
-
         }
 
         private void undoBtn_Click(object sender, EventArgs e)
@@ -80,18 +79,17 @@ namespace AutoLogin
             string email = tbEmail.Text;
             string username = tbUsername.Text;
             string password = tbPassword.Text;
+            string link = tbLink.Text;
             
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}', '{Login.uid}')";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}')";
             
             //execute query
             try
             {
                 DbManager.openConnection();
-                //DbManager.addDataToTable("TALBE NAME", "LISTE AN COLUMNS", "LISTE AN VALUES");
-                
                 
                 MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
                 MySqlDataReader reader = command.ExecuteReader();

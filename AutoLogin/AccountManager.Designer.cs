@@ -31,6 +31,7 @@ namespace AutoLogin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountManager));
             this.saveBtn = new System.Windows.Forms.Button();
             this.undoBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -241,6 +242,7 @@ namespace AutoLogin
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.undoBtn);
             this.Controls.Add(this.saveBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "AccountManager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountManager_FormClosed);

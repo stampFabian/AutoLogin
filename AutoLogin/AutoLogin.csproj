@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="Resources\AutoLogin - Logo - transparent.png" />
     <Content Include="Resources\refresh.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

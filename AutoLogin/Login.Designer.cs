@@ -49,10 +49,10 @@ namespace AutoLogin
             this.buttonLogin.FlatAppearance.BorderSize = 0;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonLogin.Location = new System.Drawing.Point(336, 223);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonLogin.Location = new System.Drawing.Point(224, 143);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(150, 44);
+            this.buttonLogin.Size = new System.Drawing.Size(100, 28);
             this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -63,11 +63,11 @@ namespace AutoLogin
             this.textBoxPassword.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPassword.ForeColor = System.Drawing.SystemColors.Control;
-            this.textBoxPassword.Location = new System.Drawing.Point(184, 119);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxPassword.Location = new System.Drawing.Point(123, 76);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(298, 31);
+            this.textBoxPassword.Size = new System.Drawing.Size(199, 22);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPassword_KeyPress);
             // 
@@ -76,20 +76,20 @@ namespace AutoLogin
             this.textBoxUsername.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxUsername.ForeColor = System.Drawing.SystemColors.Control;
-            this.textBoxUsername.Location = new System.Drawing.Point(184, 69);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxUsername.Location = new System.Drawing.Point(123, 44);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(298, 31);
+            this.textBoxUsername.Size = new System.Drawing.Size(199, 22);
             this.textBoxUsername.TabIndex = 0;
             // 
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelUsername.Location = new System.Drawing.Point(50, 75);
-            this.labelUsername.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelUsername.Location = new System.Drawing.Point(33, 48);
+            this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(122, 25);
+            this.labelUsername.Size = new System.Drawing.Size(81, 17);
             this.labelUsername.TabIndex = 3;
             this.labelUsername.Text = "Usarname :";
             // 
@@ -97,10 +97,10 @@ namespace AutoLogin
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelPassword.Location = new System.Drawing.Point(50, 125);
-            this.labelPassword.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelPassword.Location = new System.Drawing.Point(33, 80);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(118, 25);
+            this.labelPassword.Size = new System.Drawing.Size(77, 17);
             this.labelPassword.TabIndex = 4;
             this.labelPassword.Text = "Password :";
             // 
@@ -108,10 +108,10 @@ namespace AutoLogin
             // 
             this.labelError.AutoSize = true;
             this.labelError.ForeColor = System.Drawing.Color.Red;
-            this.labelError.Location = new System.Drawing.Point(42, 233);
-            this.labelError.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelError.Location = new System.Drawing.Point(28, 149);
+            this.labelError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(279, 25);
+            this.labelError.Size = new System.Drawing.Size(184, 17);
             this.labelError.TabIndex = 5;
             this.labelError.Text = "Usarname/Password Wrong";
             this.labelError.Visible = false;
@@ -121,10 +121,10 @@ namespace AutoLogin
             this.buttonLoginRegister.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonLoginRegister.FlatAppearance.BorderSize = 0;
             this.buttonLoginRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonLoginRegister.Location = new System.Drawing.Point(336, 279);
-            this.buttonLoginRegister.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonLoginRegister.Location = new System.Drawing.Point(224, 179);
+            this.buttonLoginRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonLoginRegister.Name = "buttonLoginRegister";
-            this.buttonLoginRegister.Size = new System.Drawing.Size(150, 44);
+            this.buttonLoginRegister.Size = new System.Drawing.Size(100, 28);
             this.buttonLoginRegister.TabIndex = 3;
             this.buttonLoginRegister.Text = "Register";
             this.buttonLoginRegister.UseVisualStyleBackColor = false;
@@ -134,29 +134,30 @@ namespace AutoLogin
             // 
             this.labelLoginRegister.AutoSize = true;
             this.labelLoginRegister.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelLoginRegister.Location = new System.Drawing.Point(50, 288);
-            this.labelLoginRegister.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelLoginRegister.Location = new System.Drawing.Point(33, 184);
+            this.labelLoginRegister.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLoginRegister.Name = "labelLoginRegister";
-            this.labelLoginRegister.Size = new System.Drawing.Size(276, 25);
+            this.labelLoginRegister.Size = new System.Drawing.Size(183, 17);
             this.labelLoginRegister.TabIndex = 7;
             this.labelLoginRegister.Text = "No Account? Register here:";
             // 
             // linkLabel1
             // 
             this.linkLabel1.LinkColor = System.Drawing.SystemColors.ButtonShadow;
-            this.linkLabel1.Location = new System.Drawing.Point(50, 156);
+            this.linkLabel1.Location = new System.Drawing.Point(33, 100);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(222, 38);
+            this.linkLabel1.Size = new System.Drawing.Size(148, 24);
             this.linkLabel1.TabIndex = 8;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Forgot password?";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(516, 350);
+            this.ClientSize = new System.Drawing.Size(344, 224);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.labelLoginRegister);
             this.Controls.Add(this.buttonLoginRegister);
@@ -167,7 +168,7 @@ namespace AutoLogin
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.buttonLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);

@@ -47,7 +47,7 @@
             // textBoxRegisterEmail
             // 
             this.textBoxRegisterEmail.Location = new System.Drawing.Point(144, 80);
-            this.textBoxRegisterEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRegisterEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRegisterEmail.Name = "textBoxRegisterEmail";
             this.textBoxRegisterEmail.Size = new System.Drawing.Size(132, 22);
             this.textBoxRegisterEmail.TabIndex = 0;
@@ -55,7 +55,7 @@
             // textBoxRegisterUsername
             // 
             this.textBoxRegisterUsername.Location = new System.Drawing.Point(144, 112);
-            this.textBoxRegisterUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRegisterUsername.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRegisterUsername.Name = "textBoxRegisterUsername";
             this.textBoxRegisterUsername.Size = new System.Drawing.Size(132, 22);
             this.textBoxRegisterUsername.TabIndex = 1;
@@ -63,7 +63,7 @@
             // textBoxRegisterPassword
             // 
             this.textBoxRegisterPassword.Location = new System.Drawing.Point(144, 144);
-            this.textBoxRegisterPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRegisterPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRegisterPassword.Name = "textBoxRegisterPassword";
             this.textBoxRegisterPassword.PasswordChar = '*';
             this.textBoxRegisterPassword.Size = new System.Drawing.Size(132, 22);
@@ -72,7 +72,7 @@
             // textBoxRegisterPasswordCheck
             // 
             this.textBoxRegisterPasswordCheck.Location = new System.Drawing.Point(144, 176);
-            this.textBoxRegisterPasswordCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRegisterPasswordCheck.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRegisterPasswordCheck.Name = "textBoxRegisterPasswordCheck";
             this.textBoxRegisterPasswordCheck.PasswordChar = '*';
             this.textBoxRegisterPasswordCheck.Size = new System.Drawing.Size(132, 22);
@@ -121,7 +121,7 @@
             // buttonRegisterSubmit
             // 
             this.buttonRegisterSubmit.Location = new System.Drawing.Point(177, 234);
-            this.buttonRegisterSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRegisterSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
             this.buttonRegisterSubmit.Size = new System.Drawing.Size(100, 28);
             this.buttonRegisterSubmit.TabIndex = 8;
@@ -195,7 +195,7 @@
             this.Controls.Add(this.textBoxRegisterUsername);
             this.Controls.Add(this.textBoxRegisterEmail);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Register";
             this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Register_FormClosed);

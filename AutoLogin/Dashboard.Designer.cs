@@ -116,7 +116,7 @@ namespace AutoLogin
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
-            this.Text = "Dashboard";
+            this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.ResumeLayout(false);

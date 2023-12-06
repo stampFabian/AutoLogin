@@ -120,7 +120,8 @@
             // 
             // buttonRegisterSubmit
             // 
-            this.buttonRegisterSubmit.Location = new System.Drawing.Point(177, 234);
+            this.buttonRegisterSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegisterSubmit.Location = new System.Drawing.Point(163, 221);
             this.buttonRegisterSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
             this.buttonRegisterSubmit.Size = new System.Drawing.Size(100, 28);
@@ -197,7 +198,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Register";
-            this.Text = "Register";
+            this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Register_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

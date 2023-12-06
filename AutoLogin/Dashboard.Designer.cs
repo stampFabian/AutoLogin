@@ -41,6 +41,7 @@ namespace AutoLogin
             // 
             // comboBox1
             // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(102, 219);
             this.comboBox1.Name = "comboBox1";
@@ -68,6 +69,7 @@ namespace AutoLogin
             // 
             // dashboard_button_login
             // 
+            this.dashboard_button_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboard_button_login.Font = new System.Drawing.Font("Trebuchet MS", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button_login.Location = new System.Drawing.Point(102, 270);
             this.dashboard_button_login.Name = "dashboard_button_login";
@@ -79,6 +81,7 @@ namespace AutoLogin
             // 
             // dashboard_button_edit
             // 
+            this.dashboard_button_edit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboard_button_edit.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button_edit.Location = new System.Drawing.Point(102, 369);
             this.dashboard_button_edit.Name = "dashboard_button_edit";
@@ -109,7 +112,7 @@ namespace AutoLogin
             this.Controls.Add(this.comboBox1);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Dashboard";
-            this.Text = "Dashboard";
+            this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.ResumeLayout(false);

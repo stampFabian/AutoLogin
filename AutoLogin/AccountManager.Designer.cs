@@ -56,6 +56,7 @@ namespace AutoLogin
             // 
             // saveBtn
             // 
+            this.saveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveBtn.Location = new System.Drawing.Point(403, 385);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(191, 53);
@@ -65,6 +66,7 @@ namespace AutoLogin
             // 
             // undoBtn
             // 
+            this.undoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.undoBtn.Location = new System.Drawing.Point(9, 385);
             this.undoBtn.Name = "undoBtn";
             this.undoBtn.Size = new System.Drawing.Size(191, 53);
@@ -75,6 +77,7 @@ namespace AutoLogin
             // 
             // cancelBtn
             // 
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtn.Location = new System.Drawing.Point(206, 385);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(191, 53);
@@ -104,7 +107,8 @@ namespace AutoLogin
             // 
             this.btnRefresh.BackgroundImage = global::AutoLogin.Properties.Resources.refresh;
             this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRefresh.Location = new System.Drawing.Point(709, 28);
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.Location = new System.Drawing.Point(553, 23);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(41, 43);
             this.btnRefresh.TabIndex = 5;
@@ -245,6 +249,7 @@ namespace AutoLogin
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "AccountManager";
+            this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountManager_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
             this.ResumeLayout(false);

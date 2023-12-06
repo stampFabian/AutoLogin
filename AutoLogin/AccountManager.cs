@@ -111,5 +111,10 @@ namespace AutoLogin
         {
             Environment.Exit(0);
         }
+
+        private void AccountManager_Load(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

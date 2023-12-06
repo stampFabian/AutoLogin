@@ -89,7 +89,7 @@ namespace AutoLogin
             this.dataGrid1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
             this.dataGrid1.Location = new System.Drawing.Point(24, 83);
             this.dataGrid1.Name = "dataGrid1";
-            this.dataGrid1.Size = new System.Drawing.Size(570, 268);
+            this.dataGrid1.Size = new System.Drawing.Size(457, 268);
             this.dataGrid1.TabIndex = 3;
             // 
             // accNameLbl
@@ -104,7 +104,7 @@ namespace AutoLogin
             // 
             this.btnRefresh.BackgroundImage = global::AutoLogin.Properties.Resources.refresh;
             this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRefresh.Location = new System.Drawing.Point(553, 23);
+            this.btnRefresh.Location = new System.Drawing.Point(709, 28);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(41, 43);
             this.btnRefresh.TabIndex = 5;
@@ -113,35 +113,35 @@ namespace AutoLogin
             // 
             // tbType
             // 
-            this.tbType.Location = new System.Drawing.Point(611, 44);
+            this.tbType.Location = new System.Drawing.Point(501, 53);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(178, 22);
             this.tbType.TabIndex = 6;
             // 
             // tbInfo
             // 
-            this.tbInfo.Location = new System.Drawing.Point(611, 104);
+            this.tbInfo.Location = new System.Drawing.Point(501, 113);
             this.tbInfo.Name = "tbInfo";
             this.tbInfo.Size = new System.Drawing.Size(178, 22);
             this.tbInfo.TabIndex = 7;
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(611, 164);
+            this.tbEmail.Location = new System.Drawing.Point(501, 173);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(178, 22);
             this.tbEmail.TabIndex = 8;
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(611, 224);
+            this.tbUsername.Location = new System.Drawing.Point(501, 233);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(178, 22);
             this.tbUsername.TabIndex = 9;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(611, 283);
+            this.tbPassword.Location = new System.Drawing.Point(501, 292);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(178, 22);
             this.tbPassword.TabIndex = 10;
@@ -159,7 +159,7 @@ namespace AutoLogin
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(611, 9);
+            this.label1.Location = new System.Drawing.Point(501, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 32);
             this.label1.TabIndex = 12;
@@ -168,7 +168,7 @@ namespace AutoLogin
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(611, 69);
+            this.label2.Location = new System.Drawing.Point(501, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 32);
             this.label2.TabIndex = 13;
@@ -177,7 +177,7 @@ namespace AutoLogin
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(611, 129);
+            this.label3.Location = new System.Drawing.Point(501, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 32);
             this.label3.TabIndex = 14;
@@ -186,7 +186,7 @@ namespace AutoLogin
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(611, 189);
+            this.label4.Location = new System.Drawing.Point(501, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(166, 32);
             this.label4.TabIndex = 15;
@@ -195,7 +195,7 @@ namespace AutoLogin
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(611, 248);
+            this.label5.Location = new System.Drawing.Point(501, 257);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(166, 32);
             this.label5.TabIndex = 16;
@@ -204,7 +204,7 @@ namespace AutoLogin
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(611, 308);
+            this.label6.Location = new System.Drawing.Point(501, 317);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(166, 32);
             this.label6.TabIndex = 17;
@@ -212,7 +212,7 @@ namespace AutoLogin
             // 
             // tbLink
             // 
-            this.tbLink.Location = new System.Drawing.Point(611, 343);
+            this.tbLink.Location = new System.Drawing.Point(501, 352);
             this.tbLink.Name = "tbLink";
             this.tbLink.Size = new System.Drawing.Size(178, 22);
             this.tbLink.TabIndex = 18;

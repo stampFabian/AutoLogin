@@ -3,6 +3,7 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using DatabaseManager;
 using System;
+using System.Drawing;
 
 
 namespace AutoLogin
@@ -115,6 +116,12 @@ namespace AutoLogin
         private void AccountManager_Load(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void gB1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.Clear(this.BackColor);
+            ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);
         }
     }
 }

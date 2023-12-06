@@ -109,6 +109,7 @@
     <Compile Include="AccountManager.Designer.cs">
       <DependentUpon>AccountManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClipboardMonitor.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +117,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DbManager.cs" />
+    <Compile Include="KeyBoardHook.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

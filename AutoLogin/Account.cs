@@ -9,7 +9,7 @@
         private string _username;
         private string _password;
         private string _link;
-        private string _uid;
+        private int _uid;
         
         public int accid
         {
@@ -95,7 +95,7 @@
             }
         }
         
-        public string uid
+        public int uid
         {
             get
             {
@@ -107,7 +107,7 @@
             }
         }
         
-        public Account(int accid, string type, string info, string email, string username, string password, string link, string uid)
+        public Account(int accid, string type, string info, string email, string username, string password, string link, int uid)
         {
             this.accid = accid;
             this.type = type;

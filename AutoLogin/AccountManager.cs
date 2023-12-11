@@ -49,7 +49,7 @@ namespace AutoLogin
                     dataGrid1.DataSource = dataTable;
 
                     string username = dataTable.Rows[0]["username"].ToString();
-                    accNameLbl.Text = username;
+                    accNameLbl.Text = "Hello " + username;
                 }
                 else
                 {

@@ -41,6 +41,7 @@
             this.labelRegisterRegistration = new System.Windows.Forms.Label();
             this.labelRegisterPasswordWrong = new System.Windows.Forms.Label();
             this.labelRegisterEmailExists = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxRegisterEmail
@@ -120,15 +121,17 @@
             // 
             // buttonRegisterSubmit
             // 
+            this.buttonRegisterSubmit.BackColor = System.Drawing.SystemColors.HighlightText;
             this.buttonRegisterSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegisterSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegisterSubmit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonRegisterSubmit.Location = new System.Drawing.Point(244, 345);
+            this.buttonRegisterSubmit.Location = new System.Drawing.Point(327, 344);
             this.buttonRegisterSubmit.Margin = new System.Windows.Forms.Padding(6);
             this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
             this.buttonRegisterSubmit.Size = new System.Drawing.Size(150, 44);
             this.buttonRegisterSubmit.TabIndex = 8;
             this.buttonRegisterSubmit.Text = "Submit";
-            this.buttonRegisterSubmit.UseVisualStyleBackColor = true;
+            this.buttonRegisterSubmit.UseVisualStyleBackColor = false;
             this.buttonRegisterSubmit.Click += new System.EventHandler(this.buttonRegisterSubmit_Click);
             // 
             // labelRegisterPasswordSafety
@@ -178,12 +181,25 @@
             this.labelRegisterEmailExists.Text = "Already exists";
             this.labelRegisterEmailExists.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(173, 345);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 43);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(666, 433);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelRegisterEmailExists);
             this.Controls.Add(this.labelRegisterPasswordWrong);
             this.Controls.Add(this.labelRegisterRegistration);
@@ -200,12 +216,17 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Register_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.Label labelRegisterEmailExists;
 

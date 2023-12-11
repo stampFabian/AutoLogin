@@ -93,5 +93,11 @@ namespace AutoLogin
             accPsw = accounts[comboBox1.SelectedIndex - 1].password;
             Clipboard.SetText(" ");
         }
+
+        private void button1_Click(object sender, EventArgs e){
+            this.Hide();
+            Login login1 = new Login();
+            login1.Show();
+        }
     }
 }

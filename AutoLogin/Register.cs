@@ -110,5 +110,11 @@ namespace AutoLogin
         {
             throw new System.NotImplementedException();
         }
+
+        private void button1_Click(object sender, EventArgs e){
+            this.Hide();
+            Login login1 = new Login();
+            login1.Show();
+        }
     }
 }

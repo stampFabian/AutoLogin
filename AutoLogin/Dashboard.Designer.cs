@@ -36,6 +36,7 @@ namespace AutoLogin
             this.dashboard_button_login = new System.Windows.Forms.Button();
             this.dashboard_button_edit = new System.Windows.Forms.Button();
             this.dashboard_lbl_username = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -64,10 +65,11 @@ namespace AutoLogin
             this.dashboard_label_combolbl.Name = "dashboard_label_combolbl";
             this.dashboard_label_combolbl.Size = new System.Drawing.Size(466, 38);
             this.dashboard_label_combolbl.TabIndex = 2;
-            this.dashboard_label_combolbl.Text = "Zum anmelden auswählen";
+            this.dashboard_label_combolbl.Text = "Select account to log in";
             // 
             // dashboard_button_login
             // 
+            this.dashboard_button_login.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.dashboard_button_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboard_button_login.Font = new System.Drawing.Font("Trebuchet MS", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button_login.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -75,8 +77,8 @@ namespace AutoLogin
             this.dashboard_button_login.Name = "dashboard_button_login";
             this.dashboard_button_login.Size = new System.Drawing.Size(468, 80);
             this.dashboard_button_login.TabIndex = 3;
-            this.dashboard_button_login.Text = "Anmelden";
-            this.dashboard_button_login.UseVisualStyleBackColor = true;
+            this.dashboard_button_login.Text = "Log me in!";
+            this.dashboard_button_login.UseVisualStyleBackColor = false;
             this.dashboard_button_login.Click += new System.EventHandler(this.dashboard_button_login_Click);
             // 
             // dashboard_button_edit
@@ -88,7 +90,7 @@ namespace AutoLogin
             this.dashboard_button_edit.Name = "dashboard_button_edit";
             this.dashboard_button_edit.Size = new System.Drawing.Size(218, 55);
             this.dashboard_button_edit.TabIndex = 4;
-            this.dashboard_button_edit.Text = "Bearbeiten";
+            this.dashboard_button_edit.Text = "Edit accounts";
             this.dashboard_button_edit.UseVisualStyleBackColor = true;
             this.dashboard_button_edit.Click += new System.EventHandler(this.dashboard_button_edit_Click);
             // 
@@ -100,12 +102,24 @@ namespace AutoLogin
             this.dashboard_lbl_username.TabIndex = 5;
             this.dashboard_lbl_username.Click += new System.EventHandler(this.dashboard_lbl_username_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.Location = new System.Drawing.Point(359, 369);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 54);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Logout";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1600, 866);
+            this.ClientSize = new System.Drawing.Size(724, 529);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dashboard_lbl_username);
             this.Controls.Add(this.dashboard_button_edit);
             this.Controls.Add(this.dashboard_button_login);
@@ -115,11 +129,14 @@ namespace AutoLogin
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.Label dashboard_lbl_username;
 

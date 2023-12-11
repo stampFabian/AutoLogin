@@ -50,7 +50,13 @@ namespace AutoLogin
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbLink = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.gB1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
+            this.gB1.SuspendLayout();
             this.SuspendLayout();
             // 
             // saveBtn
@@ -112,8 +118,8 @@ namespace AutoLogin
             this.btnRefresh.BackgroundImage = global::AutoLogin.Properties.Resources.refresh;
             this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefresh.Location = new System.Drawing.Point(830, 36);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRefresh.Location = new System.Drawing.Point(440, 20);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(62, 67);
             this.btnRefresh.TabIndex = 5;
@@ -239,12 +245,64 @@ namespace AutoLogin
             this.tbLink.Size = new System.Drawing.Size(265, 31);
             this.tbLink.TabIndex = 18;
             // 
+            // radioButton1
+            // 
+            this.radioButton1.Location = new System.Drawing.Point(12, 18);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(20, 21);
+            this.radioButton1.TabIndex = 19;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Location = new System.Drawing.Point(12, 49);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(20, 21);
+            this.radioButton2.TabIndex = 20;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(721, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(166, 32);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "template";
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(721, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(166, 32);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "DIY";
+            // 
+            // gB1
+            // 
+            this.gB1.Controls.Add(this.radioButton2);
+            this.gB1.Controls.Add(this.radioButton1);
+            this.gB1.Location = new System.Drawing.Point(683, 14);
+            this.gB1.Name = "gB1";
+            this.gB1.Size = new System.Drawing.Size(38, 80);
+            this.gB1.TabIndex = 23;
+            this.gB1.TabStop = false;
+            this.gB1.Paint += new System.Windows.Forms.PaintEventHandler(this.gB1_Paint);
+            // 
             // AccountManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1200, 703);
+            this.ClientSize = new System.Drawing.Size(1016, 450);
+            this.Controls.Add(this.gB1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.tbLink);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -271,9 +329,16 @@ namespace AutoLogin
             this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountManager_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
+            this.gB1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.GroupBox gB1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
 
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbLink;

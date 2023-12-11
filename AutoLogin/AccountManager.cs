@@ -75,7 +75,17 @@ namespace AutoLogin
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            string type = tbType.Text;
+            string type;
+
+            if (cB_template.Visible == true)
+            {
+                type = cB_template.Text;
+            }
+            else
+            {
+                type = tbType.Text;
+            }
+            
             string info = tbInfo.Text;
             string email = tbEmail.Text;
             string username = tbUsername.Text;

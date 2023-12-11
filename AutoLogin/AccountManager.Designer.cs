@@ -51,12 +51,12 @@ namespace AutoLogin
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbLink = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.DIY_RBtn = new System.Windows.Forms.RadioButton();
+            this.template_RBtn = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.gB1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cB_template = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             this.gB1.SuspendLayout();
             this.SuspendLayout();
@@ -97,15 +97,15 @@ namespace AutoLogin
             // 
             this.dataGrid1.DataMember = "";
             this.dataGrid1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-            this.dataGrid1.Location = new System.Drawing.Point(24, 83);
+            this.dataGrid1.Location = new System.Drawing.Point(12, 68);
             this.dataGrid1.Name = "dataGrid1";
-            this.dataGrid1.Size = new System.Drawing.Size(457, 268);
+            this.dataGrid1.Size = new System.Drawing.Size(483, 306);
             this.dataGrid1.TabIndex = 3;
             // 
             // accNameLbl
             // 
             this.accNameLbl.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accNameLbl.Location = new System.Drawing.Point(24, 18);
+            this.accNameLbl.Location = new System.Drawing.Point(12, 5);
             this.accNameLbl.Name = "accNameLbl";
             this.accNameLbl.Size = new System.Drawing.Size(340, 53);
             this.accNameLbl.TabIndex = 4;
@@ -115,7 +115,7 @@ namespace AutoLogin
             this.btnRefresh.BackgroundImage = global::AutoLogin.Properties.Resources.refresh;
             this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefresh.Location = new System.Drawing.Point(293, 13);
+            this.btnRefresh.Location = new System.Drawing.Point(454, 12);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(41, 43);
             this.btnRefresh.TabIndex = 5;
@@ -124,7 +124,7 @@ namespace AutoLogin
             // 
             // tbType
             // 
-            this.tbType.Location = new System.Drawing.Point(501, 53);
+            this.tbType.Location = new System.Drawing.Point(501, 49);
             this.tbType.Name = "tbType";
             this.tbType.Size = new System.Drawing.Size(178, 22);
             this.tbType.TabIndex = 6;
@@ -170,7 +170,7 @@ namespace AutoLogin
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(501, 13);
+            this.label1.Location = new System.Drawing.Point(501, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 32);
             this.label1.TabIndex = 12;
@@ -228,33 +228,34 @@ namespace AutoLogin
             this.tbLink.Size = new System.Drawing.Size(178, 22);
             this.tbLink.TabIndex = 18;
             // 
-            // radioButton1
+            // DIY_RBtn
             // 
-            this.radioButton1.Location = new System.Drawing.Point(3, 9);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(18, 16);
-            this.radioButton1.TabIndex = 19;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.DIY_RBtn.Checked = true;
+            this.DIY_RBtn.Location = new System.Drawing.Point(3, 9);
+            this.DIY_RBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.DIY_RBtn.Name = "DIY_RBtn";
+            this.DIY_RBtn.Size = new System.Drawing.Size(18, 16);
+            this.DIY_RBtn.TabIndex = 19;
+            this.DIY_RBtn.TabStop = true;
+            this.DIY_RBtn.Text = "DIY";
+            this.DIY_RBtn.UseVisualStyleBackColor = true;
+            this.DIY_RBtn.CheckedChanged += new System.EventHandler(this.DIY_RBtn_CheckedChanged);
             // 
-            // radioButton2
+            // template_RBtn
             // 
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 29);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(18, 18);
-            this.radioButton2.TabIndex = 20;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.template_RBtn.Location = new System.Drawing.Point(3, 29);
+            this.template_RBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.template_RBtn.Name = "template_RBtn";
+            this.template_RBtn.Size = new System.Drawing.Size(18, 18);
+            this.template_RBtn.TabIndex = 20;
+            this.template_RBtn.Text = "template";
+            this.template_RBtn.UseVisualStyleBackColor = true;
+            this.template_RBtn.CheckedChanged += new System.EventHandler(this.template_RBtn_CheckedChanged);
             // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(709, 38);
+            this.label7.Location = new System.Drawing.Point(709, 68);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(146, 37);
@@ -264,7 +265,7 @@ namespace AutoLogin
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(709, 68);
+            this.label8.Location = new System.Drawing.Point(709, 40);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 29);
@@ -273,8 +274,8 @@ namespace AutoLogin
             // 
             // gB1
             // 
-            this.gB1.Controls.Add(this.radioButton2);
-            this.gB1.Controls.Add(this.radioButton1);
+            this.gB1.Controls.Add(this.template_RBtn);
+            this.gB1.Controls.Add(this.DIY_RBtn);
             this.gB1.Location = new System.Drawing.Point(684, 44);
             this.gB1.Margin = new System.Windows.Forms.Padding(2);
             this.gB1.Name = "gB1";
@@ -284,21 +285,24 @@ namespace AutoLogin
             this.gB1.TabStop = false;
             this.gB1.Paint += new System.Windows.Forms.PaintEventHandler(this.gB1_Paint);
             // 
-            // comboBox1
+            // cB_template
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(560, 78);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 24);
-            this.comboBox1.TabIndex = 24;
+            this.cB_template.FormattingEnabled = true;
+            this.cB_template.Items.AddRange(new object[] { "Google", "Github", "Microsoft", "𝕏" });
+            this.cB_template.Location = new System.Drawing.Point(501, 49);
+            this.cB_template.Name = "cB_template";
+            this.cB_template.Size = new System.Drawing.Size(178, 24);
+            this.cB_template.TabIndex = 24;
+            this.cB_template.Visible = false;
+            this.cB_template.SelectedIndexChanged += new System.EventHandler(this.cB_template_SelectedIndexChanged);
             // 
             // AccountManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(880, 450);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(830, 450);
+            this.Controls.Add(this.cB_template);
             this.Controls.Add(this.gB1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -332,11 +336,11 @@ namespace AutoLogin
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cB_template;
 
         private System.Windows.Forms.GroupBox gB1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton DIY_RBtn;
+        private System.Windows.Forms.RadioButton template_RBtn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
 

@@ -52,11 +52,6 @@ namespace AutoLogin
                     string username = dataTable.Rows[0]["username"].ToString();
                     accNameLbl.Text = "Hello " + username;
                 }
-                else
-                {
-                    // if no data was returned, show a message box
-                    MessageBox.Show("No Data Found", "Information");
-                }
             }
             catch (Exception ex)
             {

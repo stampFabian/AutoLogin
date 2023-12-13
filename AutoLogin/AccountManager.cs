@@ -3,6 +3,7 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using DatabaseManager;
 using System;
+using System.Drawing;
 
 
 namespace AutoLogin
@@ -13,7 +14,9 @@ namespace AutoLogin
         {
             InitializeComponent();
             
+            // Opens the database connection
             DbManager.openConnection();
+            refresh();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -25,60 +28,138 @@ namespace AutoLogin
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            // TODO: refresh the data grid
-            
-            // Open the database connection
-            
+            refresh();
+        }
 
+        private void refresh()
+        {
             // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
-            string tableName = "users"; // Replace with your actual table name
-            string query = $"SELECT * FROM {tableName}";
+            string tableName = "accounts_table"; // Replace with your actual table name
+            string query = $"SELECT * FROM {tableName} where uid = '{Login.uid}'";
 
             try
             {
-                // Create a MySqlCommand and MySqlDataAdapter
                 MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-
-                // Create a DataTable to store the data
                 DataTable dataTable = new DataTable();
 
-                // Fill the DataTable with data from the database
                 adapter.Fill(dataTable);
 
-                // Bind the DataTable to the DataGridView
-                dataGrid1.DataSource = dataTable;
-                
-                //---------------------------------------------
-                //test
-                //---------------------------------------------
+                if (dataTable.Rows.Count > 0) // checks if any data was returned
+                {
+                    dataGrid1.DataSource = dataTable;
 
-                //change the label to the username of the selected row
-                
-                
-                
-                
-                //string username = dataTable.Rows[0].Cells[1].Value.ToString();
-                //accNameLbl.Text = username;
-                
-                
-                
-                
-                /*string username = dataTable.ToString();
-                MessageBox.Show(username);
-                    
-                    //Instance.GetDataTable("users").Rows[0]["username"].ToString();
-                accNameLbl.Name = username;
-                */
+                    string username = dataTable.Rows[0]["username"].ToString();
+                    accNameLbl.Text = "Hello " + username;
+                }
+                else
+                {
+                    // if no data was returned, show a message box
+                    MessageBox.Show("No Data Found", "Information");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(@"Error: " + ex.Message, @"Error fetching data");
+                MessageBox.Show(@"Error: " + ex.Message, @"Error when retrieving the data");
             }
             finally
             {
-                // Close the database connection
                 DbManager.closeConnection();
+            }
+        }
+
+        private void undoBtn_Click(object sender, EventArgs e)
+        {
+            btnRefresh_Click(sender, e);
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            string type = tbType.Text;
+            string info = tbInfo.Text;
+            string email = tbEmail.Text;
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
+            string link = tbLink.Text;
+            
+            //insert details into table
+            
+            string tableName = "accounts_table";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}')";
+            
+            //execute query
+            try
+            {
+                DbManager.openConnection();
+                
+                MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
+                MySqlDataReader reader = command.ExecuteReader();
+                
+                MessageBox.Show("Account added successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(@"Error: " + ex.Message, @"Error adding account");
+            }
+            finally
+            {
+                DbManager.closeConnection();
+            }
+            refresh();
+        }
+
+        private void AccountManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void AccountManager_Load(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void gB1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.Clear(this.BackColor);
+            ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void DIY_RBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            tbType.Visible = true;
+            cB_template.Visible = false;
+            tbLink.Text = "";
+        }
+
+        private void template_RBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            cB_template.Visible = true;
+            tbType.Visible = false;
+        }
+
+        private void cB_template_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = cB_template.SelectedItem.ToString();
+
+            switch (selected)
+            {
+                case "Google":
+                    tbLink.Text = "https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+                    break;
+                case "Microsoft":
+                    tbLink.Text = "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1620237113&rver=7.3.6963.0&wp=MBI_SSL&wreply=https%3a%2f%2fwww.microsoft.com%2fen-us%2f&lc=1033&id=74335&aadredir=1";
+                    break;
+                case "Github":
+                    tbLink.Text = "https://github.com/login";
+                    break;
+                case "\ud835\udd4f":
+                    tbLink.Text = "https://twitter.com/i/flow/login";
+                    break;
             }
         }
     }

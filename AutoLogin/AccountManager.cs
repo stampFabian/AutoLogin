@@ -10,6 +10,7 @@ namespace AutoLogin
 {
     public partial class AccountManager : Form
     {
+        string needForLogin = "email";
         public AccountManager()
         {
             InitializeComponent();
@@ -70,17 +71,6 @@ namespace AutoLogin
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (tbUsername != null)
-            {
-                tbUsername.Visible = true;
-                tbEmail.Visible = false;
-            }
-            else
-            {
-                tbEmail.Visible = true;
-                tbUsername.Visible = false;
-            }
-            
             string type;
 
             if (cB_template.Visible == true)
@@ -101,7 +91,7 @@ namespace AutoLogin
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}')";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid, need_for_login) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}', '{needForLogin}')";
             
             //execute query
             try
@@ -185,6 +175,16 @@ namespace AutoLogin
                     tbUsername.Visible = true;
                     break;
             }
+        }
+
+        private void rBEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            needForLogin = "email";
+        }
+
+        private void rBUsername_CheckedChanged(object sender, EventArgs e)
+        {
+            needForLogin = "username";
         }
     }
 }

@@ -130,11 +130,6 @@ namespace AutoLogin
             ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
         private void DIY_RBtn_CheckedChanged(object sender, EventArgs e)
         {
             tbType.Visible = true;

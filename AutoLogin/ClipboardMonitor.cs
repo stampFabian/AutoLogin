@@ -54,5 +54,22 @@ namespace AutoLogin{
 
             base.WndProc(ref m);
         }
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClipboardMonitor));
+            this.SuspendLayout();
+            // 
+            // ClipboardMonitor
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "ClipboardMonitor";
+            this.ResumeLayout(false);
+        }
     }
 }

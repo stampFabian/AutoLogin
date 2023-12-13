@@ -64,7 +64,7 @@ namespace AutoLogin
             // saveBtn
             // 
             this.saveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.saveBtn.Location = new System.Drawing.Point(403, 385);
+            this.saveBtn.Location = new System.Drawing.Point(421, 385);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(191, 53);
             this.saveBtn.TabIndex = 0;
@@ -74,7 +74,7 @@ namespace AutoLogin
             // undoBtn
             // 
             this.undoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.undoBtn.Location = new System.Drawing.Point(9, 385);
+            this.undoBtn.Location = new System.Drawing.Point(27, 385);
             this.undoBtn.Name = "undoBtn";
             this.undoBtn.Size = new System.Drawing.Size(191, 53);
             this.undoBtn.TabIndex = 1;
@@ -85,7 +85,7 @@ namespace AutoLogin
             // cancelBtn
             // 
             this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelBtn.Location = new System.Drawing.Point(206, 385);
+            this.cancelBtn.Location = new System.Drawing.Point(224, 385);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(191, 53);
             this.cancelBtn.TabIndex = 2;
@@ -159,7 +159,7 @@ namespace AutoLogin
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(600, 385);
+            this.addBtn.Location = new System.Drawing.Point(618, 385);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(191, 53);
             this.addBtn.TabIndex = 11;

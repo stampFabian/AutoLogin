@@ -109,7 +109,9 @@
     <Compile Include="AccountManager.Designer.cs">
       <DependentUpon>AccountManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClipboardMonitor.cs" />
+    <Compile Include="ClipboardMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +119,12 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DbManager.cs" />
+    <Compile Include="ForgotPW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPW.Designer.cs">
+      <DependentUpon>ForgotPW.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeyBoardHook.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -137,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPW.resx">
+      <DependentUpon>ForgotPW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

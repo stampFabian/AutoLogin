@@ -115,7 +115,7 @@ namespace DatabaseManager {
 
         //An table will be created if an active connection is given
         //Needs three lists: First one is the names of the collums, Second one is the type of the collums, Third one is if the collum can be null
-        public static void createTable(string tableName, List<string> names, List<string> types, List<string> canNull) {
+        public static async Task createTable(string tableName, List<string> names, List<string> types, List<string> canNull) {
             if (names.Count() != types.Count() || names.Count() != canNull.Count() || types.Count() != canNull.Count()) return;
             List<string> variables = new List<string>();
             for (int i = 0; i<names.Count(); i++) {
@@ -129,10 +129,10 @@ namespace DatabaseManager {
             }
             string variablesString = string.Join(" ", variables.ToArray());
             MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tableName + " (" + variablesString +")", activeCon);
-            cmd.ExecuteNonQuery();
+            await cmd.ExecuteNonQueryAsync();
         }
         public static async Task<bool> createPasswordTable(string tblName, string clmId, string clmUsername, string clmPassword) {
-            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " INT AUTO_INCREMENT, " + clmUsername + " VARCHAR(255), " + clmPassword + " VARCHAR(110), PRIMARY KEY (" + clmId + "))", activeCon);
+            MySqlCommand cmd = new MySqlCommand("CREATE TABLE " + tblName + " (" + clmId + " INT AUTO_INCREMENT, " + clmUsername + " VARCHAR(255), " + clmPassword + " VARCHAR(110), email VARCHAR(255), PRIMARY KEY (" + clmId + "))", activeCon);
 
             try
             {
@@ -202,14 +202,25 @@ namespace DatabaseManager {
         //----------------------------------------- DATA
 
         //Data will be added to an table if available and if an active connection is given
-        public static void addDataToTable(string tableName, List<string> collumns, List<string> values) {
-            string sCollumns = string.Format("{0}", string.Join(", ", collumns));
-            string sValues = string.Format("'{0}'", string.Join("', '", values));
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (" + sCollumns + ") VALUES (" + sValues + ")", activeCon);
-            cmd.ExecuteNonQuery();
+        public static async Task<bool> addDataToTable(string tableName, List<string> collumns, List<string> values) {
+            try
+            {
+                string sCollumns = string.Format("{0}", string.Join(", ", collumns));
+                string sValues = string.Format("'{0}'", string.Join("', '", values));
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (" + sCollumns + ") VALUES (" + sValues + ")", activeCon);
+                await cmd.ExecuteNonQueryAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+                return false;
+            }
+            
         }
 
-        public static bool addDataToPswTable(string tableName, string username, string password)
+        public static bool addDataToPswTable(string tableName, string username, string password, string email)
         {
             MySqlCommand readerCmd = new MySqlCommand("SELECT username FROM " + tableName, activeCon);
             MySqlDataReader reader = readerCmd.ExecuteReader();
@@ -227,7 +238,7 @@ namespace DatabaseManager {
             string hash = ToSHA256(password);
     
             // Explicitly specify the columns you want to insert data into.
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (username, hashed_password) VALUES ('" + username + "', '" + hash + "')", activeCon);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO " + tableName + " (username, hashed_password, email) VALUES ('" + username + "', '" + hash + "','" + email + "')", activeCon);
 
             cmd.ExecuteNonQuery();
             return true; // Successfully inserted data.
@@ -235,21 +246,23 @@ namespace DatabaseManager {
 
 
         //To check if a user with a password is in a password table
-        public async static Task<bool> checkPasswordUser(string tableName, string username, string password) {
-            MySqlCommand cmd = new MySqlCommand("SELECT hashed_password FROM " + tableName + " where username = '" + username + "'", activeCon);
+        public async static Task<int> checkPasswordUser(string tableName, string username, string password) {
+            MySqlCommand cmd = new MySqlCommand("SELECT uid, hashed_password FROM " + tableName + " where username = '" + username + "'", activeCon);
             MySqlDataReader reader = cmd.ExecuteReader();
             List<string> passwords = new List<string>();
             int i = 0;
             while (reader.Read()) {
                 string h = ToSHA256(password);
-                if(h.Equals(reader.GetString(i))) {
+                if(h.Equals(reader.GetString(i + 1)))
+                {
+                    int uid = reader.GetInt32(i);
                     reader.Close();
-                    return true;
+                    return uid;
                 }
                 i++;
             }
             reader.Close();
-            return false;
+            return 0;
         }
         //To get the ID from User off an Password Table
         public static int getUserIdPasswordTable(string tableName, string username, string password) {

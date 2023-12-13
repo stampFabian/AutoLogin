@@ -10,6 +10,7 @@
         private string _password;
         private string _link;
         private int _uid;
+        private string _needForLogin;
         
         public int accid
         {
@@ -107,7 +108,19 @@
             }
         }
         
-        public Account(int accid, string type, string info, string email, string username, string password, string link, int uid)
+        public string needForLogin
+        {
+            get
+            {
+                return _needForLogin;
+            }
+            set
+            {
+                _needForLogin = value;
+            }
+        }
+        
+        public Account(int accid, string type, string info, string email, string username, string password, string link, int uid, string needForLogin)
         {
             this.accid = accid;
             this.type = type;
@@ -117,6 +130,7 @@
             this.password = password;
             this.link = link;
             this.uid = uid;
+            this.needForLogin = needForLogin;
         }
     }
 }

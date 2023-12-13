@@ -70,7 +70,28 @@ namespace AutoLogin
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            string type = tbType.Text;
+            if (tbUsername != null)
+            {
+                tbUsername.Visible = true;
+                tbEmail.Visible = false;
+            }
+            else
+            {
+                tbEmail.Visible = true;
+                tbUsername.Visible = false;
+            }
+            
+            string type;
+
+            if (cB_template.Visible == true)
+            {
+                type = cB_template.Text;
+            }
+            else
+            {
+                type = tbType.Text;
+            }
+            
             string info = tbInfo.Text;
             string email = tbEmail.Text;
             string username = tbUsername.Text;
@@ -145,15 +166,23 @@ namespace AutoLogin
             {
                 case "Google":
                     tbLink.Text = "https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+                    tbEmail.Visible = true;
+                    tbUsername.Visible = false;
                     break;
                 case "Microsoft":
                     tbLink.Text = "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1620237113&rver=7.3.6963.0&wp=MBI_SSL&wreply=https%3a%2f%2fwww.microsoft.com%2fen-us%2f&lc=1033&id=74335&aadredir=1";
+                    tbEmail.Visible = true;
+                    tbUsername.Visible = false;
                     break;
                 case "Github":
                     tbLink.Text = "https://github.com/login";
+                    tbEmail.Visible = true;
+                    tbUsername.Visible = false;
                     break;
                 case "\ud835\udd4f":
                     tbLink.Text = "https://twitter.com/i/flow/login";
+                    tbEmail.Visible = true;
+                    tbUsername.Visible = true;
                     break;
             }
         }

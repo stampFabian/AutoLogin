@@ -18,7 +18,6 @@ namespace AutoLogin
             InitializeComponent();
             this.username = Login.username;
             dashboard_lbl_username.Text = "Hello " + username;
-            comboBox1.Items.Add("Add new Account");
             refresh();
         }
 

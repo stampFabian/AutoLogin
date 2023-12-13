@@ -40,7 +40,7 @@ namespace AutoLogin
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
                     comboBox1.Items.Add(dataTable.Rows[i]["type"].ToString() + " / " + dataTable.Rows[i]["info"].ToString());
-                    accounts.Add(new Account(Int32.Parse(dataTable.Rows[i]["accid"].ToString()),dataTable.Rows[i]["type"].ToString(), dataTable.Rows[i]["info"].ToString(), dataTable.Rows[i]["email"].ToString(), dataTable.Rows[i]["username"].ToString(), dataTable.Rows[i]["password"].ToString(), dataTable.Rows[i]["link"].ToString(), Int32.Parse(dataTable.Rows[i]["uid"].ToString())));
+                    accounts.Add(new Account(Int32.Parse(dataTable.Rows[i]["accid"].ToString()),dataTable.Rows[i]["type"].ToString(), dataTable.Rows[i]["info"].ToString(), dataTable.Rows[i]["email"].ToString(), dataTable.Rows[i]["username"].ToString(), dataTable.Rows[i]["password"].ToString(), dataTable.Rows[i]["link"].ToString(), Int32.Parse(dataTable.Rows[i]["uid"].ToString()), dataTable.Rows[i]["needForLogin"].ToString()));
                 }
             }
             catch (Exception ex)
@@ -88,7 +88,13 @@ namespace AutoLogin
         {
             //Get Link from selected account and open it in default browser
             System.Diagnostics.Process.Start(accounts[comboBox1.SelectedIndex - 1].link);
-            accName = accounts[comboBox1.SelectedIndex - 1].username;
+            if (accounts[comboBox1.SelectedIndex - 1].needForLogin == "username"){
+                accName = accounts[comboBox1.SelectedIndex - 1].username;    
+            }
+            else{
+                accName = accounts[comboBox1.SelectedIndex - 1].email;
+            }
+            
             accPsw = accounts[comboBox1.SelectedIndex - 1].password;
             Clipboard.SetText(" ");
         }

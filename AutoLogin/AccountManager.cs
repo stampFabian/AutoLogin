@@ -194,5 +194,14 @@ namespace AutoLogin
         {
             needForLogin = "username";
         }
+
+        private void gB2_Paint(object sender, PaintEventArgs e){
+            e.Graphics.Clear(this.BackColor);
+            ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);
+        }
+
+        private void lblActivate_Click(object sender, EventArgs e){
+            throw new System.NotImplementedException();
+        }
     }
 }

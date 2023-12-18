@@ -40,7 +40,7 @@ namespace AutoLogin
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
                     comboBox1.Items.Add(dataTable.Rows[i]["type"].ToString() + " / " + dataTable.Rows[i]["info"].ToString());
-                    accounts.Add(new Account(Int32.Parse(dataTable.Rows[i]["accid"].ToString()),dataTable.Rows[i]["type"].ToString(), dataTable.Rows[i]["info"].ToString(), dataTable.Rows[i]["email"].ToString(), dataTable.Rows[i]["username"].ToString(), dataTable.Rows[i]["password"].ToString(), dataTable.Rows[i]["link"].ToString(), Int32.Parse(dataTable.Rows[i]["uid"].ToString()), dataTable.Rows[i]["needForLogin"].ToString()));
+                    accounts.Add(new Account(Int32.Parse(dataTable.Rows[i]["accid"].ToString()),dataTable.Rows[i]["type"].ToString(), dataTable.Rows[i]["info"].ToString(), dataTable.Rows[i]["email"].ToString(), dataTable.Rows[i]["username"].ToString(), dataTable.Rows[i]["password"].ToString(), dataTable.Rows[i]["link"].ToString(), Int32.Parse(dataTable.Rows[i]["uid"].ToString()), dataTable.Rows[i]["needed_for_login"].ToString()));
                 }
             }
             catch (Exception ex)
@@ -87,15 +87,15 @@ namespace AutoLogin
         private void dashboard_button_login_Click(object sender, EventArgs e)
         {
             //Get Link from selected account and open it in default browser
-            System.Diagnostics.Process.Start(accounts[comboBox1.SelectedIndex - 1].link);
-            if (accounts[comboBox1.SelectedIndex - 1].needForLogin == "username"){
-                accName = accounts[comboBox1.SelectedIndex - 1].username;    
+            System.Diagnostics.Process.Start(accounts[comboBox1.SelectedIndex].link);
+            if (accounts[comboBox1.SelectedIndex].needForLogin == "username"){
+                accName = accounts[comboBox1.SelectedIndex].username;    
             }
             else{
-                accName = accounts[comboBox1.SelectedIndex - 1].email;
+                accName = accounts[comboBox1.SelectedIndex].email;
             }
             
-            accPsw = accounts[comboBox1.SelectedIndex - 1].password;
+            accPsw = accounts[comboBox1.SelectedIndex].password;
             Clipboard.SetText(" ");
         }
 

@@ -20,7 +20,6 @@ namespace AutoLogin
             InitializeKeyboardHook();
             temp();
         }
-
         private void InitializeKeyboardHook()
         {
             keyboardHookInstance = new KeyboardHook();

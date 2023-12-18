@@ -91,7 +91,7 @@ namespace AutoLogin
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid, need_for_login) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}', '{needForLogin}')";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid, needed_for_login) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}', '{needForLogin}')";
             
             //execute query
             try

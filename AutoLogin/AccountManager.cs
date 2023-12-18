@@ -64,11 +64,6 @@ namespace AutoLogin
             }
         }
 
-        private void undoBtn_Click(object sender, EventArgs e)
-        {
-            btnRefresh_Click(sender, e);
-        }
-
         private void addBtn_Click(object sender, EventArgs e)
         {
             string type;
@@ -119,11 +114,6 @@ namespace AutoLogin
             Environment.Exit(0);
         }
 
-        private void AccountManager_Load(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
         private void gB1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.Clear(this.BackColor);
@@ -135,39 +125,62 @@ namespace AutoLogin
             tbType.Visible = true;
             cB_template.Visible = false;
             tbLink.Text = "";
+            lblActivate.Visible = true;
+            gB2.Visible = true;
+            rBEmail.Visible = true;
+            rBUsername.Visible = true;
         }
 
         private void template_RBtn_CheckedChanged(object sender, EventArgs e)
         {
             cB_template.Visible = true;
             tbType.Visible = false;
+            lblActivate.Visible = false;
+            gB2.Visible = false;
+            rBEmail.Visible = false;
+            rBUsername.Visible = false;
+
+            if (cB_template.Text != "")
+            {
+                if (cB_template.Text == "Google")
+                {
+                    tbLink.Text = "https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+                }
+                else if (cB_template.Text == "Microsoft")
+                {
+                    tbLink.Text = "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1620237113&rver=7.3.6963.0&wp=MBI_SSL&wreply=https%3a%2f%2fwww.microsoft.com%2fen-us%2f&lc=1033&id=74335&aadredir=1";
+                }
+                else if (cB_template.Text == "Github")
+                {
+                    tbLink.Text = "https://github.com/login";
+                }
+                else if (cB_template.Text == "\ud835\udd4f")
+                {
+                    tbLink.Text = "https://twitter.com/i/flow/login";
+                }
+            }
         }
 
         private void cB_template_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selected = cB_template.SelectedItem.ToString();
+            
+            tbEmail.Visible = true;
+            tbUsername.Visible = true;
 
             switch (selected)
             {
                 case "Google":
                     tbLink.Text = "https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
-                    tbEmail.Visible = true;
-                    tbUsername.Visible = false;
                     break;
                 case "Microsoft":
                     tbLink.Text = "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1620237113&rver=7.3.6963.0&wp=MBI_SSL&wreply=https%3a%2f%2fwww.microsoft.com%2fen-us%2f&lc=1033&id=74335&aadredir=1";
-                    tbEmail.Visible = true;
-                    tbUsername.Visible = false;
                     break;
                 case "Github":
                     tbLink.Text = "https://github.com/login";
-                    tbEmail.Visible = true;
-                    tbUsername.Visible = false;
                     break;
                 case "\ud835\udd4f":
                     tbLink.Text = "https://twitter.com/i/flow/login";
-                    tbEmail.Visible = true;
-                    tbUsername.Visible = true;
                     break;
             }
         }

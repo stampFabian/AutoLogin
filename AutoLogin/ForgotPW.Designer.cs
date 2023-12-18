@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ForgotPW));
             this.dashboard_label_title = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,7 +58,7 @@
             this.labelUsername.Location = new System.Drawing.Point(31, 100);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(51, 16);
+            this.labelUsername.Size = new System.Drawing.Size(55, 17);
             this.labelUsername.TabIndex = 4;
             this.labelUsername.Text = "E-Mail :";
             this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
@@ -69,7 +70,7 @@
             this.label1.Location = new System.Drawing.Point(31, 150);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 16);
+            this.label1.Size = new System.Drawing.Size(108, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "New Password :";
             // 
@@ -80,7 +81,7 @@
             this.label2.Location = new System.Drawing.Point(31, 201);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.Size = new System.Drawing.Size(90, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "E-Mail code :";
             // 
@@ -163,11 +164,11 @@
             this.Controls.Add(this.dashboard_label_title);
             this.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ForgotPW";
             this.Text = "ForgotPW";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

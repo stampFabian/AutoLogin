@@ -26,7 +26,7 @@ This application allows users to securely store their account information and se
 
 3. Compile the project and run the application.
 
-##Usage
+## Usage
 
 Launch the application
 Create an account
@@ -38,6 +38,6 @@ Go to selected website
 Insert account information with crtl + c
 **You should now be logged in!**
 
-##IMPORTANT
+## IMPORTANT
 
 **This is a simple password manager and should not be used for highly sensitive applications!**

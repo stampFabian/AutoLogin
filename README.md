@@ -2,7 +2,7 @@
 
 # AutoLogin - Account and Password Manager
 
-AutoLogin is a simple account and password manager built in C# using Windows Forms and created by @AdamKITZ @LsToe & @stampFabian.
+AutoLogin is a simple account and password manager built in C# using Windows Forms and created by **@AdamKITZ** **@LsToe** & **@stampFabian**.
 This application allows users to securely store their account information and semiautomatically log in to various websites or applications.
 
 ## Features

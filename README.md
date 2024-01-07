@@ -28,14 +28,14 @@ This application allows users to securely store their account information and se
 
 ## Usage
 
-Launch the application
-Create an account
-Press 'EDIT ACCOUNTS' button
-Insert all information needed
-Add Account (press 'BACK')
-Select account and press 'Log me in!' button
-Go to selected website
-Insert account information with crtl + c
+1. Launch the application
+2. Create an account
+3. Press 'EDIT ACCOUNTS' button
+4. Insert all information needed
+5. Add Account (press 'BACK')
+6. Select account and press 'Log me in!' button
+7. Go to selected website
+8. Insert account information with crtl + c
 **You should now be logged in!**
 
 ## IMPORTANT

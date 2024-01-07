@@ -13,7 +13,7 @@ This application allows users to securely store their account information and se
 
 ## System Requirements
 
-- Windows operating system
+- Windows
 - .NET Framework 4.7.2.
 
 ## Installation

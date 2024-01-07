@@ -9,7 +9,6 @@ namespace AutoLogin
 {
     public partial class Login : Form
     {
-        private ClipboardMonitor clipboardMonitorInstance;
         private KeyboardHook keyboardHookInstance;
         public DbManager dbm = new DbManager();
         public static string username = "";
@@ -20,10 +19,6 @@ namespace AutoLogin
             //InitializeClipboardMonitor();
             InitializeKeyboardHook();
             temp();
-        }
-        private void InitializeClipboardMonitor()
-        {
-            clipboardMonitorInstance = new ClipboardMonitor();
         }
         private void InitializeKeyboardHook()
         {
@@ -36,6 +31,7 @@ namespace AutoLogin
         }
         public async Task InitializeAsync()
         {
+
             DbManager.server = "localhost";
             DbManager.database = "database";
             DbManager.uname = "root";
@@ -136,6 +132,14 @@ namespace AutoLogin
         private void textBoxUsername_TextChanged(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            ForgotPW forgotPassword1 = new ForgotPW();
+            forgotPassword1.Show();
+
         }
     }
 }

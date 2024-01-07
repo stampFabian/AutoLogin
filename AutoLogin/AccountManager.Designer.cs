@@ -32,8 +32,6 @@ namespace AutoLogin
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountManager));
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.undoBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.dataGrid1 = new System.Windows.Forms.DataGrid();
             this.accNameLbl = new System.Windows.Forms.Label();
@@ -57,40 +55,26 @@ namespace AutoLogin
             this.label8 = new System.Windows.Forms.Label();
             this.gB1 = new System.Windows.Forms.GroupBox();
             this.cB_template = new System.Windows.Forms.ComboBox();
+            this.rBEmail = new System.Windows.Forms.RadioButton();
+            this.rBUsername = new System.Windows.Forms.RadioButton();
+            this.gB2 = new System.Windows.Forms.GroupBox();
+            this.lblActivate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             this.gB1.SuspendLayout();
+            this.gB2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.saveBtn.Location = new System.Drawing.Point(403, 385);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(191, 53);
-            this.saveBtn.TabIndex = 0;
-            this.saveBtn.Text = "save";
-            this.saveBtn.UseVisualStyleBackColor = true;
-            // 
-            // undoBtn
-            // 
-            this.undoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.undoBtn.Location = new System.Drawing.Point(9, 385);
-            this.undoBtn.Name = "undoBtn";
-            this.undoBtn.Size = new System.Drawing.Size(191, 53);
-            this.undoBtn.TabIndex = 1;
-            this.undoBtn.Text = "undo changes";
-            this.undoBtn.UseVisualStyleBackColor = true;
-            this.undoBtn.Click += new System.EventHandler(this.undoBtn_Click);
             // 
             // cancelBtn
             // 
+            this.cancelBtn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelBtn.Location = new System.Drawing.Point(206, 385);
+            this.cancelBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cancelBtn.Location = new System.Drawing.Point(12, 385);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(191, 53);
             this.cancelBtn.TabIndex = 2;
-            this.cancelBtn.Text = "cancel";
-            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Text = "Back";
+            this.cancelBtn.UseVisualStyleBackColor = false;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // dataGrid1
@@ -159,17 +143,19 @@ namespace AutoLogin
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(600, 385);
+            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.Location = new System.Drawing.Point(208, 385);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(191, 53);
+            this.addBtn.Size = new System.Drawing.Size(287, 53);
             this.addBtn.TabIndex = 11;
-            this.addBtn.Text = "add";
+            this.addBtn.Text = "Add account";
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(501, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 32);
@@ -179,6 +165,7 @@ namespace AutoLogin
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(501, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 32);
@@ -188,6 +175,7 @@ namespace AutoLogin
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(501, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 32);
@@ -197,6 +185,7 @@ namespace AutoLogin
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(501, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(166, 32);
@@ -206,6 +195,7 @@ namespace AutoLogin
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(501, 257);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(166, 32);
@@ -215,6 +205,7 @@ namespace AutoLogin
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(501, 317);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(166, 32);
@@ -231,8 +222,8 @@ namespace AutoLogin
             // DIY_RBtn
             // 
             this.DIY_RBtn.Checked = true;
-            this.DIY_RBtn.Location = new System.Drawing.Point(3, 9);
-            this.DIY_RBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.DIY_RBtn.Location = new System.Drawing.Point(3, 11);
+            this.DIY_RBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DIY_RBtn.Name = "DIY_RBtn";
             this.DIY_RBtn.Size = new System.Drawing.Size(18, 16);
             this.DIY_RBtn.TabIndex = 19;
@@ -243,8 +234,8 @@ namespace AutoLogin
             // 
             // template_RBtn
             // 
-            this.template_RBtn.Location = new System.Drawing.Point(3, 29);
-            this.template_RBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.template_RBtn.Location = new System.Drawing.Point(3, 31);
+            this.template_RBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.template_RBtn.Name = "template_RBtn";
             this.template_RBtn.Size = new System.Drawing.Size(18, 18);
             this.template_RBtn.TabIndex = 20;
@@ -255,7 +246,8 @@ namespace AutoLogin
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(709, 68);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Location = new System.Drawing.Point(709, 51);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(146, 37);
@@ -265,7 +257,8 @@ namespace AutoLogin
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Sitka Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(709, 40);
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(709, 31);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 29);
@@ -276,10 +269,10 @@ namespace AutoLogin
             // 
             this.gB1.Controls.Add(this.template_RBtn);
             this.gB1.Controls.Add(this.DIY_RBtn);
-            this.gB1.Location = new System.Drawing.Point(684, 44);
-            this.gB1.Margin = new System.Windows.Forms.Padding(2);
+            this.gB1.Location = new System.Drawing.Point(681, 31);
+            this.gB1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gB1.Name = "gB1";
-            this.gB1.Padding = new System.Windows.Forms.Padding(2);
+            this.gB1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gB1.Size = new System.Drawing.Size(21, 53);
             this.gB1.TabIndex = 23;
             this.gB1.TabStop = false;
@@ -296,12 +289,59 @@ namespace AutoLogin
             this.cB_template.Visible = false;
             this.cB_template.SelectedIndexChanged += new System.EventHandler(this.cB_template_SelectedIndexChanged);
             // 
+            // rBEmail
+            // 
+            this.rBEmail.Checked = true;
+            this.rBEmail.Location = new System.Drawing.Point(6, 9);
+            this.rBEmail.Name = "rBEmail";
+            this.rBEmail.Size = new System.Drawing.Size(16, 16);
+            this.rBEmail.TabIndex = 25;
+            this.rBEmail.TabStop = true;
+            this.rBEmail.Text = "radioButton1";
+            this.rBEmail.UseVisualStyleBackColor = true;
+            this.rBEmail.CheckedChanged += new System.EventHandler(this.rBEmail_CheckedChanged);
+            // 
+            // rBUsername
+            // 
+            this.rBUsername.Location = new System.Drawing.Point(5, 67);
+            this.rBUsername.Name = "rBUsername";
+            this.rBUsername.Size = new System.Drawing.Size(16, 16);
+            this.rBUsername.TabIndex = 26;
+            this.rBUsername.Text = "radioButton2";
+            this.rBUsername.UseVisualStyleBackColor = true;
+            this.rBUsername.CheckedChanged += new System.EventHandler(this.rBUsername_CheckedChanged);
+            // 
+            // gB2
+            // 
+            this.gB2.Controls.Add(this.rBUsername);
+            this.gB2.Controls.Add(this.rBEmail);
+            this.gB2.Location = new System.Drawing.Point(676, 167);
+            this.gB2.Name = "gB2";
+            this.gB2.Size = new System.Drawing.Size(29, 88);
+            this.gB2.TabIndex = 27;
+            this.gB2.TabStop = false;
+            this.gB2.Paint += new System.Windows.Forms.PaintEventHandler(this.gB2_Paint);
+            // 
+            // lblActivate
+            // 
+            this.lblActivate.Font = new System.Drawing.Font("Sitka Text", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblActivate.Location = new System.Drawing.Point(709, 203);
+            this.lblActivate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblActivate.Name = "lblActivate";
+            this.lblActivate.Size = new System.Drawing.Size(146, 27);
+            this.lblActivate.TabIndex = 28;
+            this.lblActivate.Text = "needed";
+            this.lblActivate.Click += new System.EventHandler(this.lblActivate_Click);
+            // 
             // AccountManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(830, 450);
+            this.Controls.Add(this.lblActivate);
+            this.Controls.Add(this.gB2);
             this.Controls.Add(this.cB_template);
             this.Controls.Add(this.gB1);
             this.Controls.Add(this.label8);
@@ -323,18 +363,24 @@ namespace AutoLogin
             this.Controls.Add(this.accNameLbl);
             this.Controls.Add(this.dataGrid1);
             this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.undoBtn);
-            this.Controls.Add(this.saveBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "AccountManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auto Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountManager_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
             this.gB1.ResumeLayout(false);
+            this.gB2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label lblActivate;
+
+        private System.Windows.Forms.RadioButton rBEmail;
+        private System.Windows.Forms.RadioButton rBUsername;
+        private System.Windows.Forms.GroupBox gB2;
 
         private System.Windows.Forms.ComboBox cB_template;
 
@@ -368,8 +414,6 @@ namespace AutoLogin
 
         private System.Windows.Forms.DataGrid dataGrid1;
 
-        private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Button undoBtn;
         private System.Windows.Forms.Button cancelBtn;
 
         #endregion

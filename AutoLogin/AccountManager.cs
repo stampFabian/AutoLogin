@@ -10,6 +10,7 @@ namespace AutoLogin
 {
     public partial class AccountManager : Form
     {
+        string needForLogin = "email";
         public AccountManager()
         {
             InitializeComponent();
@@ -52,11 +53,6 @@ namespace AutoLogin
                     string username = dataTable.Rows[0]["username"].ToString();
                     accNameLbl.Text = "Hello " + username;
                 }
-                else
-                {
-                    // if no data was returned, show a message box
-                    MessageBox.Show("No Data Found", "Information");
-                }
             }
             catch (Exception ex)
             {
@@ -68,14 +64,19 @@ namespace AutoLogin
             }
         }
 
-        private void undoBtn_Click(object sender, EventArgs e)
-        {
-            btnRefresh_Click(sender, e);
-        }
-
         private void addBtn_Click(object sender, EventArgs e)
         {
-            string type = tbType.Text;
+            string type;
+
+            if (cB_template.Visible == true)
+            {
+                type = cB_template.Text;
+            }
+            else
+            {
+                type = tbType.Text;
+            }
+            
             string info = tbInfo.Text;
             string email = tbEmail.Text;
             string username = tbUsername.Text;
@@ -85,7 +86,7 @@ namespace AutoLogin
             //insert details into table
             
             string tableName = "accounts_table";
-            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}')";
+            string query = $"INSERT INTO {tableName}(type, info, email, username, password, link, uid, needed_for_login) VALUES('{type}', '{info}', '{email}', '{username}', '{password}' , '{link}' , '{Login.uid}', '{needForLogin}')";
             
             //execute query
             try
@@ -113,20 +114,10 @@ namespace AutoLogin
             Environment.Exit(0);
         }
 
-        private void AccountManager_Load(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
         private void gB1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.Clear(this.BackColor);
             ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
         }
 
         private void DIY_RBtn_CheckedChanged(object sender, EventArgs e)
@@ -134,17 +125,48 @@ namespace AutoLogin
             tbType.Visible = true;
             cB_template.Visible = false;
             tbLink.Text = "";
+            lblActivate.Visible = true;
+            gB2.Visible = true;
+            rBEmail.Visible = true;
+            rBUsername.Visible = true;
         }
 
         private void template_RBtn_CheckedChanged(object sender, EventArgs e)
         {
             cB_template.Visible = true;
             tbType.Visible = false;
+            lblActivate.Visible = false;
+            gB2.Visible = false;
+            rBEmail.Visible = false;
+            rBUsername.Visible = false;
+
+            if (cB_template.Text != "")
+            {
+                if (cB_template.Text == "Google")
+                {
+                    tbLink.Text = "https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
+                }
+                else if (cB_template.Text == "Microsoft")
+                {
+                    tbLink.Text = "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1620237113&rver=7.3.6963.0&wp=MBI_SSL&wreply=https%3a%2f%2fwww.microsoft.com%2fen-us%2f&lc=1033&id=74335&aadredir=1";
+                }
+                else if (cB_template.Text == "Github")
+                {
+                    tbLink.Text = "https://github.com/login";
+                }
+                else if (cB_template.Text == "\ud835\udd4f")
+                {
+                    tbLink.Text = "https://twitter.com/i/flow/login";
+                }
+            }
         }
 
         private void cB_template_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selected = cB_template.SelectedItem.ToString();
+            
+            tbEmail.Visible = true;
+            tbUsername.Visible = true;
 
             switch (selected)
             {
@@ -161,6 +183,25 @@ namespace AutoLogin
                     tbLink.Text = "https://twitter.com/i/flow/login";
                     break;
             }
+        }
+
+        private void rBEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            needForLogin = "email";
+        }
+
+        private void rBUsername_CheckedChanged(object sender, EventArgs e)
+        {
+            needForLogin = "username";
+        }
+
+        private void gB2_Paint(object sender, PaintEventArgs e){
+            e.Graphics.Clear(this.BackColor);
+            ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);
+        }
+
+        private void lblActivate_Click(object sender, EventArgs e){
+            throw new System.NotImplementedException();
         }
     }
 }

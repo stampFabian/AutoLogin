@@ -1,5 +1,6 @@
 ﻿namespace AutoLogin
 {
+    // Class is used to store data of the accounts
     public class Account
     {
         private int _accid;

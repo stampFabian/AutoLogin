@@ -34,23 +34,31 @@ namespace AutoLogin
 
         private void refresh()
         {
-            // Execute a SQL query to fetch data, replace 'YourTableName' with your actual table name
-            string tableName = "accounts_table"; // Replace with your actual table name
+            // SQL query gets executed
+            string tableName = "accounts_table"; // pay attention to the correct table name
             string query = $"SELECT * FROM {tableName} where uid = '{Login.uid}'";
 
             try
             {
+                // Create a new MySQL command with the provided query and connection
                 MySqlCommand command = new MySqlCommand(query, DbManager.activeCon);
+                // Create a new MySQL data adapter to retrieve data from the database
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                // Create a new DataTable to store the retrieved data
                 DataTable dataTable = new DataTable();
 
+                // Fill the DataTable with the data received by the adapter
                 adapter.Fill(dataTable);
 
-                if (dataTable.Rows.Count > 0) // checks if any data was returned
+                // Check if any data was returned
+                if (dataTable.Rows.Count > 0)
                 {
+                    // If yes, set the data source of the data grid to the DataTable
                     dataGrid1.DataSource = dataTable;
 
+                    // Get the username from the first row of the DataTable
                     string username = dataTable.Rows[0]["username"].ToString();
+                    // Set the text of the label to greet the user
                     accNameLbl.Text = "Hello " + username;
                 }
             }
@@ -64,10 +72,13 @@ namespace AutoLogin
             }
         }
 
+        // Add Account
         private void addBtn_Click(object sender, EventArgs e)
         {
             string type;
 
+            // If template is visible, use the text from selected template
+            // Otherwise use the text from DIY
             if (cB_template.Visible == true)
             {
                 type = cB_template.Text;
@@ -120,6 +131,7 @@ namespace AutoLogin
             ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);
         }
 
+        // Radio Button DIY is checked
         private void DIY_RBtn_CheckedChanged(object sender, EventArgs e)
         {
             tbType.Visible = true;
@@ -131,6 +143,7 @@ namespace AutoLogin
             rBUsername.Visible = true;
         }
 
+        // Radio Button Template is checked
         private void template_RBtn_CheckedChanged(object sender, EventArgs e)
         {
             cB_template.Visible = true;
@@ -161,6 +174,7 @@ namespace AutoLogin
             }
         }
 
+        // Template options
         private void cB_template_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selected = cB_template.SelectedItem.ToString();
@@ -168,6 +182,7 @@ namespace AutoLogin
             tbEmail.Visible = true;
             tbUsername.Visible = true;
 
+            // Login-link for each Website is automatically set
             switch (selected)
             {
                 case "Google":
@@ -185,16 +200,19 @@ namespace AutoLogin
             }
         }
 
+        // Radio Button Email is checked
         private void rBEmail_CheckedChanged(object sender, EventArgs e)
         {
             needForLogin = "email";
         }
 
+        // Radio Button Username is checked
         private void rBUsername_CheckedChanged(object sender, EventArgs e)
         {
             needForLogin = "username";
         }
 
+        
         private void gB2_Paint(object sender, PaintEventArgs e){
             e.Graphics.Clear(this.BackColor);
             ControlPaint.DrawBorder(e.Graphics, this.gB1.ClientRectangle, Color.Transparent, ButtonBorderStyle.Solid);

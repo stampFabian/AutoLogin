@@ -36,7 +36,7 @@ This application allows users to securely store their account information and se
 6. Select account and press 'Log me in!' button
 7. Go to selected website
 8. Insert account information with crtl + c
-**You should now be logged in!**
+>**You should now be logged in!**
 
 ## IMPORTANT
 

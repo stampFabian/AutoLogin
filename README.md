@@ -36,9 +36,10 @@ This application allows users to securely store their account information and se
 6. Select account and press 'Log me in!' button
 7. Go to selected website
 8. Insert account information with crtl + c
-> [!CAUTION]
+> [!NOTE]
 > **You should now be logged in!**
 
 ## IMPORTANT
 
-**This is a simple password manager and should not be used for highly sensitive applications!**
+> [!CAUTION]
+> **This is a simple password manager and should not be used for highly sensitive applications!**
